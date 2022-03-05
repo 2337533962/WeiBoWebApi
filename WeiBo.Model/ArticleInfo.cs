@@ -85,7 +85,7 @@ namespace WeiBoWebApi.Model
             set { this._articleId = value; }
         }
         /// <summary>
-        /// userEquipment
+        /// 用户设备
         /// </summary>
         public string UserEquipment
         {
@@ -93,7 +93,7 @@ namespace WeiBoWebApi.Model
             set { this._userEquipment = value; }
         }
         /// <summary>
-        /// content
+        /// 内容
         /// </summary>
         public string Content
         {
@@ -101,7 +101,7 @@ namespace WeiBoWebApi.Model
             set { this._content = value; }
         }
         /// <summary>
-        /// tagId
+        /// 标签Id
         /// </summary>
         public int? TagId
         {

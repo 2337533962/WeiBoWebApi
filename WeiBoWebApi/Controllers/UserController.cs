@@ -29,7 +29,7 @@ namespace WeiBoWebApi.Controllers
         /// </summary>
         /// <param name="a"></param>
         /// <returns></returns>
-        [HttpGet("/user/account")]
+        [HttpGet("/user/s")]
         public object GetUserByAccount(string a)
         {
             UserInfoBll userInfoBll = new UserInfoBll();
@@ -61,7 +61,7 @@ namespace WeiBoWebApi.Controllers
         /// <summary>
         /// 根据用户Id获取ta关注的信息
         /// </summary>
-        [HttpGet("/follow/list")]
+        [HttpGet("/follow/list/s")]
         public IEnumerable<AttentionInfo> GetAttentionInfos(int uid) {
             return new AttentionInfoBll().GetModelList("followId=@uid", 
                 new System.Data.SqlClient.SqlParameter("uid", uid));
@@ -70,7 +70,7 @@ namespace WeiBoWebApi.Controllers
         /// <summary>
         /// 根据用户Id获取ta关注的数量
         /// </summary>
-        [HttpGet("/follow/count")]
+        [HttpGet("/follow/s")]
         public int GetFollowNum(int uid)
         {
             return new AttentionInfoBll().GetModelList("followId=@uid",
@@ -80,7 +80,7 @@ namespace WeiBoWebApi.Controllers
         /// <summary>
         /// 根据用户Id获取ta粉丝的信息
         /// </summary>
-        [HttpGet("/fans/list")]
+        [HttpGet("/fans/list/s")]
         public IEnumerable<AttentionInfo> GetFansList(int uid)
         {
             return new AttentionInfoBll().GetModelList("followToId=@uid",
@@ -90,7 +90,7 @@ namespace WeiBoWebApi.Controllers
         /// <summary>
         /// 根据用户Id获取ta粉丝的数量
         /// </summary>
-        [HttpGet("/fans/count")]
+        [HttpGet("/fans/s")]
         public int GetFansCount(int uid)
         {
             return new AttentionInfoBll().GetModelList("followToId=@uid",

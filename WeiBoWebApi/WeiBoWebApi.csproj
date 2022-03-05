@@ -20,5 +20,9 @@
     <ProjectReference Include="..\WeiBo.Model\WeiBoWebApi.Model.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
 
 </Project>
