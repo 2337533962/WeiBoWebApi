@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WeiBo.DAL\WeiBoWebApi.DAL.csproj" />
+    <ProjectReference Include="..\WeiBo.Model\WeiBoWebApi.Model.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WeiBoWebApi</name>
+    </assembly>
+    <members>
+        <member name="T:WeiBoWebApi.Controllers.ArticleController">
+            <summary>
+            文章控制器
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.ArticleController.GetArticleInfos">
+            <summary>
+            获取所有文章
+            </summary>
+            <returns>文章列表</returns>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.ArticleController.GetArticleTypes">
+            <summary>
+            获取所有文章类型
+            </summary>
+            <returns>文章类型列表</returns>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.ArticleController.Insert(WeiBoWebApi.Model.ArticleInfo)">
+            <summary>
+            新增文章
+            </summary>
+            <param name="articleInfo"></param>
+            <returns>结果，Succeed或Failed</returns>
+        </member>
+        <member name="T:WeiBoWebApi.Controllers.HubController">
+            <summary>
+            hub控制器(测试阶段)
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.HubController.Send(System.String,System.String)">
+            <summary>
+            发送信息
+            </summary>
+            <param name="msg">发送的消息</param>
+            <param name="id">发送者Id</param>
+        </member>
+        <member name="T:WeiBoWebApi.Controllers.UserController">
+            <summary>
+            用户控制器
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.UserController.GetUsers">
+            <summary>
+            获取所有用户信息
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.UserController.GetUserByAccount(System.String)">
+            <summary>
+            根据账号获取指定用户信息
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WeiBoWebApi.ChatHub.OnConnectedAsync">
+            <summary>
+            客户连接成功时触发
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
