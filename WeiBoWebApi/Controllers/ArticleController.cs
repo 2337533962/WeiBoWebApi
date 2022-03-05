@@ -47,5 +47,15 @@ namespace WeiBoWebApi.Controllers
                 return OperResult.Succeed();
             return OperResult.Failed("添加失败!");
         }
+
+        /// <summary>
+        /// 修改文章
+        /// </summary>
+        /// <param name="articleInfo"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public object Update(ArticleInfo articleInfo) {
+            return OperResult.Failed("还没有做，你别急！");
+        }
     }
 }
