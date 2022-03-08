@@ -16,16 +16,22 @@ using System.IO;
 
 namespace WeiBoWebApi
 {
+#pragma warning disable CS1591 // 缺少对公共可见类型或成员的 XML 注释
     public class Startup
+#pragma warning restore CS1591 // 缺少对公共可见类型或成员的 XML 注释
     {
+#pragma warning disable CS1591 // 缺少对公共可见类型或成员的 XML 注释
         public Startup(IConfiguration configuration)
+#pragma warning restore CS1591 // 缺少对公共可见类型或成员的 XML 注释
         {
             Configuration = configuration;
         }
 
+#pragma warning disable CS1591 // 缺少对公共可见类型或成员的 XML 注释
         public IConfiguration Configuration { get; }
+#pragma warning restore CS1591 // 缺少对公共可见类型或成员的 XML 注释
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        /// This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             //////发布政策解决跨域
@@ -61,7 +67,7 @@ namespace WeiBoWebApi
 
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -69,46 +75,27 @@ namespace WeiBoWebApi
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseRouting();
+            app.UseAuthorization();
+            app.UseEndpoints(x => { x.MapControllers(); });
 
             //启用中间件服务生成Swagger作为JSON终结点
             app.UseSwagger();
             //启用中间件服务对swagger-ui，指定Swagger JSON终结点
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "WeiBo API V1");
                 c.RoutePrefix = string.Empty;
             });
 
             //向 ASP.NET Core 应用添加 SignalR 功能时，通过在 Startup.Configure 方法的 app.UseEndpoints 回调中调用 endpoint.MapHub 来设置 SignalR 路由。
-            app.UseRouting();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapHub<ChatHub>("/chathub");
             });
 
-
-
-            app.UseAuthorization();
-
-            app.UseRouting();
-
-            //app.UseSignalR(routes =>
-            //{
-            //    //SignalrHub为后台代码中继承Hub的类，“/chat”为请求路由地址；
-            //    routes.MapHub<ChatHub>("/chathub");
-            //    //可以配置多个地址
-            //});
-
-
             app.UseCors("any");
 
-
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
         }
 
 

@@ -16,7 +16,9 @@ namespace WeiBoWebApi.Controllers
     public class HubController : ControllerBase
     {
         private readonly IHubContext<ChatHub> _countHub;
+#pragma warning disable CS1591 // 缺少对公共可见类型或成员的 XML 注释
         public HubController(IHubContext<ChatHub> countHub)
+#pragma warning restore CS1591 // 缺少对公共可见类型或成员的 XML 注释
         {
             _countHub = countHub;
         }

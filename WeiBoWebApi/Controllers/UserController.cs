@@ -6,6 +6,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using WeiBoWebApi.Model;
 using WeiBoWebApi.BLL;
+using WeiBoWebApi.ViewModel;
+using WeiBoWebApi.Commons;
+
 namespace WeiBoWebApi.Controllers
 {
     /// <summary>
@@ -42,6 +45,35 @@ namespace WeiBoWebApi.Controllers
         }
 
         /// <summary>
+        /// 注册用户
+        /// </summary>
+        [HttpPost("/user/i")]
+        public object RegisteUser(UserRegiste userRegiste)
+        {
+            if (string.IsNullOrEmpty(userRegiste.Account))
+                return OperResult.Failed("账号不能为空！");
+            if (string.IsNullOrEmpty(userRegiste.Password))
+                return OperResult.Failed("密码不能为空！");
+            UserInfoBll userInfoBll = new UserInfoBll();
+            if (!userInfoBll.ExistsThisAccount(userRegiste.Account))
+            {
+                UserInfo userInfo = new UserInfo
+                {
+                    Account = userRegiste.Account,
+                    Pwd = new SHAEncryption().SHA1Encrypt(userRegiste.Password),
+                    Follow = 0,
+                    IsDelete = false,
+                    NickName = "用户" + new Random().Next(5000000, 10000000).ToString("X"),
+                    SexId = 3
+                };
+                if (userInfoBll.Add(userInfo))
+                    return OperResult.Succeed();
+            }
+            return OperResult.Failed("账号已存在！");
+
+        }
+
+        /// <summary>
         /// 获取所有性别信息
         /// </summary>
         [HttpGet("/sex/all")]
@@ -54,7 +86,8 @@ namespace WeiBoWebApi.Controllers
         /// 根据性别id获取性别值
         /// </summary>
         [HttpGet("/sex")]
-        public object GetSexBySexId(int sexId) {
+        public object GetSexBySexId(int sexId)
+        {
             return new SexInfoBll().GetModel(sexId);
         }
 
@@ -62,8 +95,9 @@ namespace WeiBoWebApi.Controllers
         /// 根据用户Id获取ta关注的信息
         /// </summary>
         [HttpGet("/follow/list/s")]
-        public IEnumerable<AttentionInfo> GetAttentionInfos(int uid) {
-            return new AttentionInfoBll().GetModelList("followId=@uid", 
+        public IEnumerable<AttentionInfo> GetAttentionInfos(int uid)
+        {
+            return new AttentionInfoBll().GetModelList("followId=@uid",
                 new System.Data.SqlClient.SqlParameter("uid", uid));
         }
 

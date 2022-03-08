@@ -4,6 +4,18 @@
         <name>WeiBoWebApi</name>
     </assembly>
     <members>
+        <member name="T:WeiBoWebApi.Commons.SHAEncryption">
+            <summary>
+            哈希散列加密类
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Commons.SHAEncryption.SHA1Encrypt(System.String)">
+            <summary>
+            散列加密（不可逆），加密失败时返回源字符串
+            </summary>
+            <param name="input">待加密的字符串</param>
+            <returns>返回40个字符</returns>
+        </member>
         <member name="T:WeiBoWebApi.Controllers.ArticleController">
             <summary>
             文章控制器
@@ -87,6 +99,11 @@
             <param name="a"></param>
             <returns></returns>
         </member>
+        <member name="M:WeiBoWebApi.Controllers.UserController.RegisteUser(WeiBoWebApi.ViewModel.UserRegiste)">
+            <summary>
+            注册用户
+            </summary>
+        </member>
         <member name="M:WeiBoWebApi.Controllers.UserController.GetAllSexInfo">
             <summary>
             获取所有性别信息
@@ -117,11 +134,27 @@
             根据用户Id获取ta粉丝的数量
             </summary>
         </member>
+        <member name="T:WeiBoWebApi.ChatHub">
+            <summary>
+            Hub
+            </summary>
+        </member>
         <member name="M:WeiBoWebApi.ChatHub.OnConnectedAsync">
             <summary>
             客户连接成功时触发
             </summary>
             <returns></returns>
+        </member>
+        <member name="M:WeiBoWebApi.ChatHub.SendMessage(System.String,System.String)">
+            <summary>
+            发送消息给所有人
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            This method gets called by the runtime. Use this method to add services to the container.
+        </member>
+        <member name="M:WeiBoWebApi.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         </member>
         <member name="T:WeiBoWebApi.Model.OperResult">
             <summary>
@@ -220,6 +253,36 @@
         <member name="T:WeiBoWebApi.Model.StatusCode">
             <summary>
             返回结果状态码
+            </summary>
+        </member>
+        <member name="F:WeiBoWebApi.Model.StatusCode.Succeed">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="F:WeiBoWebApi.Model.StatusCode.Failed">
+            <summary>
+            失败
+            </summary>
+        </member>
+        <member name="F:WeiBoWebApi.Model.StatusCode.Wrong">
+            <summary>
+            异常
+            </summary>
+        </member>
+        <member name="T:WeiBoWebApi.ViewModel.UserRegiste">
+            <summary>
+            用户注册
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.UserRegiste.Account">
+            <summary>
+            账号
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.UserRegiste.Password">
+            <summary>
+            密码
             </summary>
         </member>
     </members>

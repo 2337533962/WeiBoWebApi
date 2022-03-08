@@ -5,6 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 namespace WeiBoWebApi
 {
+    /// <summary>
+    /// Hub
+    /// </summary>
     public class ChatHub : Hub
     {
         /// <summary>
@@ -24,7 +27,9 @@ namespace WeiBoWebApi
             //像所有用户发送消息
             await Clients.All.SendAsync("AddMsg", $"{cid}加入了聊天室");
         }
-
+        /// <summary>
+        /// 发送消息给所有人
+        /// </summary>
         public Task SendMessage(string user, string message)
         {
             return Clients.All.SendAsync("ReceiveMessage", user, message);
