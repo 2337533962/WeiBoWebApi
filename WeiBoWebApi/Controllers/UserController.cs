@@ -19,7 +19,7 @@ namespace WeiBoWebApi.Controllers
         /// 获取所有用户信息
         /// </summary>
         [HttpGet("/user/all")]
-        public IEnumerable<UserInfo> GetUsers()
+        public IEnumerable<UserInfo> GetAllUsers()
         {
             return new UserInfoBll().GetAllModel();
         }

@@ -10,34 +10,34 @@ using WeiBoWebApi.Model;
 namespace WeiBoWebApi.BLL
 {
     /// <summary>
-    /// History业务逻辑对象
+    /// 历史推文表业务逻辑对象
     /// </summary>
     public partial class HistoryBll
     {
         /// <summary>
-        /// History数据访问对象
+        /// 历史推文表数据访问对象
         /// </summary>
         private readonly HistoryDal _historyDal = new HistoryDal();
         /// <summary>
-        /// 实例化History业务逻辑对象
+        /// 实例化历史推文表业务逻辑对象
         /// </summary>
         public HistoryBll()
         {
             
         }
         /// <summary>
-        /// 查询得到History表中所有信息
+        /// 查询得到历史推文表表中所有信息
         /// </summary>
-        /// <returns>查询到的所有History数据模型对象集合</returns>
+        /// <returns>查询到的所有历史推文表数据模型对象集合</returns>
         public List<History> GetAllModel()
         {
             //调用数据库访问层查询表中所有信息方法并将查询结果返回
             return this._historyDal.GetAllModel();
         }
         /// <summary>
-        /// 将传入的History数据模型对象数据存入数据库，并将自动编号值存入，传入History数据模型对象中
+        /// 将传入的历史推文表数据模型对象数据存入数据库，并将自动编号值存入，传入历史推文表数据模型对象中
         /// </summary>
-        /// <param name="history">要进行添加到数据库的History数据模型对象</param>
+        /// <param name="history">要进行添加到数据库的历史推文表数据模型对象</param>
         /// <returns>返回是否添加成功，为true添加成功，为false添加失败</returns>
         public bool Add(History history)
         {
@@ -47,7 +47,7 @@ namespace WeiBoWebApi.BLL
         /// <summary>
         /// 更新数据
         /// </summary>
-        /// <param name="history">History</param>
+        /// <param name="history">历史推文表</param>
         /// <returns>返回是否更新成功，为true成功为false失败</returns>
         public bool Update(History history)
         {
@@ -57,7 +57,7 @@ namespace WeiBoWebApi.BLL
         /// <summary>
         /// 判断是否有此记录
         /// </summary>
-        /// <param name="history">验证的History数据模型对象</param>
+        /// <param name="history">验证的历史推文表数据模型对象</param>
         /// <returns>返回是否有此记录，为true代表有此记录，为false代表没有此记录</returns>
         public bool Exists(History history)
         {
@@ -117,7 +117,7 @@ namespace WeiBoWebApi.BLL
         /// <param name="startIndex">开始索引</param>
         /// <param name="endIndex">结束索引</param>
         /// <param name="sqlParameters">所需SQL参数对象数组</param>
-        /// <returns>查询到的History数据模型对象集合</returns>
+        /// <returns>查询到的历史推文表数据模型对象集合</returns>
         public List<History> GetListByPage(string where, string orderby, bool isDesc, int startIndex, int endIndex, params SqlParameter[] sqlParameters)
         {
             //调用数据访问层分页获取数据方法并将查询到的数据返回
@@ -132,7 +132,7 @@ namespace WeiBoWebApi.BLL
         /// <param name="pageIndex">页面索引【从零开始】</param>
         /// <param name="pageItemCount">一页显示多少数据</param>
         /// <param name="sqlParameters">所需SQL参数对象数组</param>
-        /// <returns>查询到的History数据模型对象集合</returns>
+        /// <returns>查询到的历史推文表数据模型对象集合</returns>
         public List<History> GetMinutePage(string where, string orderby, bool isDesc, int pageIndex, int pageItemCount, params SqlParameter[] sqlParameters)
         {
             //调用数据访问层分页获取数据方法
@@ -148,7 +148,7 @@ namespace WeiBoWebApi.BLL
         /// <param name="pageItemCount">一页显示多少数据</param>
         /// <param name="allItmeCount">总共有多少条记录</param>
         /// <param name="sqlParameters">所需SQL参数对象数组</param>
-        /// <returns>查询到的History数据模型对象集合</returns>
+        /// <returns>查询到的历史推文表数据模型对象集合</returns>
         public List<History> GetMinutePage(string where, string orderby, bool isDesc, int pageIndex, int pageItemCount, out int allItmeCount, params SqlParameter[] sqlParameters)
         {
             //调用数据访问层分页获取数据方法

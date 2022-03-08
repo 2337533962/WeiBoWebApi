@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -12,10 +11,10 @@ namespace WeiBoWebApi.DAL
     /// <summary>连接数据库的对象
     /// 
     /// </summary>
-    public static class SqlDataBase
+    public static class DBHelper
     {
         //SQL连接字符串【记得引用程序集System.Configuration】
-        private readonly static string SqlJoinString = "Data Source=.;INITIAL CATALOG = WeiBoDB; User ID = sa; Password = 123456";
+        private readonly static string SqlJoinString = "server=.;database=WeiBoDB;uid=sa;pwd=123456";
         /// <summary>执行对数据库进行（增、删、改）方法
         /// 
         /// </summary>
@@ -25,7 +24,7 @@ namespace WeiBoWebApi.DAL
         public static int ExecuteNonQuery(string sql, params SqlParameter[] pmr)
         {
             //创建连接数据库对象
-            using (SqlConnection con = new SqlConnection(SqlDataBase.SqlJoinString))
+            using (SqlConnection con = new SqlConnection(DBHelper.SqlJoinString))
             {
                 //执行sql语句方法
                 using (SqlCommand cmd = new SqlCommand(sql, con))
@@ -61,7 +60,7 @@ namespace WeiBoWebApi.DAL
         public static object ExecuteScalar(string sql, params SqlParameter[] pmr)
         {
             //创建连接数据库的对象
-            using (SqlConnection con = new SqlConnection(SqlDataBase.SqlJoinString))
+            using (SqlConnection con = new SqlConnection(DBHelper.SqlJoinString))
             {
                 //创建执行sql语句的对象
                 using (SqlCommand cmd = new SqlCommand(sql, con))
@@ -91,7 +90,7 @@ namespace WeiBoWebApi.DAL
             //防止SqlConnection对象自动执行Clone()、Dispose()方法来释放资源后
             //返回的SqlDataReader对象访问不到数据了
             //配合cmd.ExecuteReader()方法中的枚举解决此问题
-            SqlConnection con = new SqlConnection(SqlDataBase.SqlJoinString);
+            SqlConnection con = new SqlConnection(DBHelper.SqlJoinString);
             //创建执行sql语句的对象
             using (SqlCommand cmd = new SqlCommand(sql, con))
             {
@@ -130,7 +129,7 @@ namespace WeiBoWebApi.DAL
             //创建一个DataTable对象来存储查找出来的表
             DataTable dt = new DataTable();
             //窗SqlDataAdapter对象查找数据库
-            using (SqlDataAdapter asapter = new SqlDataAdapter(sql, SqlDataBase.SqlJoinString))
+            using (SqlDataAdapter asapter = new SqlDataAdapter(sql, DBHelper.SqlJoinString))
             {
                 //判断传入的sql变量是否为空
                 if (pms != null)

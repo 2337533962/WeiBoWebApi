@@ -10,34 +10,34 @@ using WeiBoWebApi.Model;
 namespace WeiBoWebApi.BLL
 {
     /// <summary>
-    /// ArticleInfo业务逻辑对象
+    /// 作品信息表业务逻辑对象
     /// </summary>
     public partial class ArticleInfoBll
     {
         /// <summary>
-        /// ArticleInfo数据访问对象
+        /// 作品信息表数据访问对象
         /// </summary>
         private readonly ArticleInfoDal _articleInfoDal = new ArticleInfoDal();
         /// <summary>
-        /// 实例化ArticleInfo业务逻辑对象
+        /// 实例化作品信息表业务逻辑对象
         /// </summary>
         public ArticleInfoBll()
         {
             
         }
         /// <summary>
-        /// 查询得到ArticleInfo表中所有信息
+        /// 查询得到作品信息表表中所有信息
         /// </summary>
-        /// <returns>查询到的所有ArticleInfo数据模型对象集合</returns>
+        /// <returns>查询到的所有作品信息表数据模型对象集合</returns>
         public List<ArticleInfo> GetAllModel()
         {
             //调用数据库访问层查询表中所有信息方法并将查询结果返回
             return this._articleInfoDal.GetAllModel();
         }
         /// <summary>
-        /// 将传入的ArticleInfo数据模型对象数据存入数据库，并将自动编号值存入，传入ArticleInfo数据模型对象中
+        /// 将传入的作品信息表数据模型对象数据存入数据库，并将自动编号值存入，传入作品信息表数据模型对象中
         /// </summary>
-        /// <param name="articleInfo">要进行添加到数据库的ArticleInfo数据模型对象</param>
+        /// <param name="articleInfo">要进行添加到数据库的作品信息表数据模型对象</param>
         /// <returns>返回是否添加成功，为true添加成功，为false添加失败</returns>
         public bool Add(ArticleInfo articleInfo)
         {
@@ -45,10 +45,10 @@ namespace WeiBoWebApi.BLL
             return this._articleInfoDal.Add(articleInfo);
         }
         /// <summary>
-        /// 根据主键获取一条记录返回一个ArticleInfo数据模型对象
+        /// 根据主键获取一条记录返回一个作品信息表数据模型对象
         /// </summary>
-        /// <param name="articleId">articleId</param>
-        /// <returns>如果查找到此记录就返回ArticleInfo数据模型对象，否则返回null</returns>
+        /// <param name="articleId">作品Id</param>
+        /// <returns>如果查找到此记录就返回作品信息表数据模型对象，否则返回null</returns>
         public ArticleInfo GetModel(int articleId)
         {
             //调用数据访问层查询方法并将查询结果返回
@@ -57,7 +57,7 @@ namespace WeiBoWebApi.BLL
         /// <summary>
         /// 根据主键删除一条记录
         /// </summary>
-        /// <param name="articleId">articleId</param>
+        /// <param name="articleId">作品Id</param>
         /// <returns>返回是否删除成功，为true删除成功，为false删除失败</returns>
         public bool Delete(int articleId)
         {
@@ -67,7 +67,7 @@ namespace WeiBoWebApi.BLL
         /// <summary>
         /// 判断是否有此主键对应的记录
         /// </summary>
-        /// <param name="articleId">articleId</param>
+        /// <param name="articleId">作品Id</param>
         /// <returns>返回是否有此对应的记录，为true代表有此记录，为false代表没有此记录</returns>
         public bool Exists(int articleId)
         {
@@ -77,7 +77,7 @@ namespace WeiBoWebApi.BLL
         /// <summary>
         /// 更新数据
         /// </summary>
-        /// <param name="articleInfo">ArticleInfo</param>
+        /// <param name="articleInfo">作品信息表</param>
         /// <returns>返回是否更新成功，为true成功为false失败</returns>
         public bool Update(ArticleInfo articleInfo)
         {
@@ -87,7 +87,7 @@ namespace WeiBoWebApi.BLL
         /// <summary>
         /// 判断是否有此记录
         /// </summary>
-        /// <param name="articleInfo">验证的ArticleInfo数据模型对象</param>
+        /// <param name="articleInfo">验证的作品信息表数据模型对象</param>
         /// <returns>返回是否有此记录，为true代表有此记录，为false代表没有此记录</returns>
         public bool Exists(ArticleInfo articleInfo)
         {
@@ -147,7 +147,7 @@ namespace WeiBoWebApi.BLL
         /// <param name="startIndex">开始索引</param>
         /// <param name="endIndex">结束索引</param>
         /// <param name="sqlParameters">所需SQL参数对象数组</param>
-        /// <returns>查询到的ArticleInfo数据模型对象集合</returns>
+        /// <returns>查询到的作品信息表数据模型对象集合</returns>
         public List<ArticleInfo> GetListByPage(string where, string orderby, bool isDesc, int startIndex, int endIndex, params SqlParameter[] sqlParameters)
         {
             //调用数据访问层分页获取数据方法并将查询到的数据返回
@@ -162,7 +162,7 @@ namespace WeiBoWebApi.BLL
         /// <param name="pageIndex">页面索引【从零开始】</param>
         /// <param name="pageItemCount">一页显示多少数据</param>
         /// <param name="sqlParameters">所需SQL参数对象数组</param>
-        /// <returns>查询到的ArticleInfo数据模型对象集合</returns>
+        /// <returns>查询到的作品信息表数据模型对象集合</returns>
         public List<ArticleInfo> GetMinutePage(string where, string orderby, bool isDesc, int pageIndex, int pageItemCount, params SqlParameter[] sqlParameters)
         {
             //调用数据访问层分页获取数据方法
@@ -178,7 +178,7 @@ namespace WeiBoWebApi.BLL
         /// <param name="pageItemCount">一页显示多少数据</param>
         /// <param name="allItmeCount">总共有多少条记录</param>
         /// <param name="sqlParameters">所需SQL参数对象数组</param>
-        /// <returns>查询到的ArticleInfo数据模型对象集合</returns>
+        /// <returns>查询到的作品信息表数据模型对象集合</returns>
         public List<ArticleInfo> GetMinutePage(string where, string orderby, bool isDesc, int pageIndex, int pageItemCount, out int allItmeCount, params SqlParameter[] sqlParameters)
         {
             //调用数据访问层分页获取数据方法

@@ -10,34 +10,34 @@ using WeiBoWebApi.Model;
 namespace WeiBoWebApi.BLL
 {
     /// <summary>
-    /// SecondComment业务逻辑对象
+    /// 二级评论表业务逻辑对象
     /// </summary>
     public partial class SecondCommentBll
     {
         /// <summary>
-        /// SecondComment数据访问对象
+        /// 二级评论表数据访问对象
         /// </summary>
         private readonly SecondCommentDal _secondCommentDal = new SecondCommentDal();
         /// <summary>
-        /// 实例化SecondComment业务逻辑对象
+        /// 实例化二级评论表业务逻辑对象
         /// </summary>
         public SecondCommentBll()
         {
             
         }
         /// <summary>
-        /// 查询得到SecondComment表中所有信息
+        /// 查询得到二级评论表表中所有信息
         /// </summary>
-        /// <returns>查询到的所有SecondComment数据模型对象集合</returns>
+        /// <returns>查询到的所有二级评论表数据模型对象集合</returns>
         public List<SecondComment> GetAllModel()
         {
             //调用数据库访问层查询表中所有信息方法并将查询结果返回
             return this._secondCommentDal.GetAllModel();
         }
         /// <summary>
-        /// 将传入的SecondComment数据模型对象数据存入数据库，并将自动编号值存入，传入SecondComment数据模型对象中
+        /// 将传入的二级评论表数据模型对象数据存入数据库，并将自动编号值存入，传入二级评论表数据模型对象中
         /// </summary>
-        /// <param name="secondComment">要进行添加到数据库的SecondComment数据模型对象</param>
+        /// <param name="secondComment">要进行添加到数据库的二级评论表数据模型对象</param>
         /// <returns>返回是否添加成功，为true添加成功，为false添加失败</returns>
         public bool Add(SecondComment secondComment)
         {
@@ -45,10 +45,10 @@ namespace WeiBoWebApi.BLL
             return this._secondCommentDal.Add(secondComment);
         }
         /// <summary>
-        /// 根据主键获取一条记录返回一个SecondComment数据模型对象
+        /// 根据主键获取一条记录返回一个二级评论表数据模型对象
         /// </summary>
-        /// <param name="secondCommentId">secondCommentId</param>
-        /// <returns>如果查找到此记录就返回SecondComment数据模型对象，否则返回null</returns>
+        /// <param name="secondCommentId">二级评论Id</param>
+        /// <returns>如果查找到此记录就返回二级评论表数据模型对象，否则返回null</returns>
         public SecondComment GetModel(int secondCommentId)
         {
             //调用数据访问层查询方法并将查询结果返回
@@ -57,7 +57,7 @@ namespace WeiBoWebApi.BLL
         /// <summary>
         /// 根据主键删除一条记录
         /// </summary>
-        /// <param name="secondCommentId">secondCommentId</param>
+        /// <param name="secondCommentId">二级评论Id</param>
         /// <returns>返回是否删除成功，为true删除成功，为false删除失败</returns>
         public bool Delete(int secondCommentId)
         {
@@ -67,7 +67,7 @@ namespace WeiBoWebApi.BLL
         /// <summary>
         /// 判断是否有此主键对应的记录
         /// </summary>
-        /// <param name="secondCommentId">secondCommentId</param>
+        /// <param name="secondCommentId">二级评论Id</param>
         /// <returns>返回是否有此对应的记录，为true代表有此记录，为false代表没有此记录</returns>
         public bool Exists(int secondCommentId)
         {
@@ -77,7 +77,7 @@ namespace WeiBoWebApi.BLL
         /// <summary>
         /// 更新数据
         /// </summary>
-        /// <param name="secondComment">SecondComment</param>
+        /// <param name="secondComment">二级评论表</param>
         /// <returns>返回是否更新成功，为true成功为false失败</returns>
         public bool Update(SecondComment secondComment)
         {
@@ -87,7 +87,7 @@ namespace WeiBoWebApi.BLL
         /// <summary>
         /// 判断是否有此记录
         /// </summary>
-        /// <param name="secondComment">验证的SecondComment数据模型对象</param>
+        /// <param name="secondComment">验证的二级评论表数据模型对象</param>
         /// <returns>返回是否有此记录，为true代表有此记录，为false代表没有此记录</returns>
         public bool Exists(SecondComment secondComment)
         {
@@ -147,7 +147,7 @@ namespace WeiBoWebApi.BLL
         /// <param name="startIndex">开始索引</param>
         /// <param name="endIndex">结束索引</param>
         /// <param name="sqlParameters">所需SQL参数对象数组</param>
-        /// <returns>查询到的SecondComment数据模型对象集合</returns>
+        /// <returns>查询到的二级评论表数据模型对象集合</returns>
         public List<SecondComment> GetListByPage(string where, string orderby, bool isDesc, int startIndex, int endIndex, params SqlParameter[] sqlParameters)
         {
             //调用数据访问层分页获取数据方法并将查询到的数据返回
@@ -162,7 +162,7 @@ namespace WeiBoWebApi.BLL
         /// <param name="pageIndex">页面索引【从零开始】</param>
         /// <param name="pageItemCount">一页显示多少数据</param>
         /// <param name="sqlParameters">所需SQL参数对象数组</param>
-        /// <returns>查询到的SecondComment数据模型对象集合</returns>
+        /// <returns>查询到的二级评论表数据模型对象集合</returns>
         public List<SecondComment> GetMinutePage(string where, string orderby, bool isDesc, int pageIndex, int pageItemCount, params SqlParameter[] sqlParameters)
         {
             //调用数据访问层分页获取数据方法
@@ -178,7 +178,7 @@ namespace WeiBoWebApi.BLL
         /// <param name="pageItemCount">一页显示多少数据</param>
         /// <param name="allItmeCount">总共有多少条记录</param>
         /// <param name="sqlParameters">所需SQL参数对象数组</param>
-        /// <returns>查询到的SecondComment数据模型对象集合</returns>
+        /// <returns>查询到的二级评论表数据模型对象集合</returns>
         public List<SecondComment> GetMinutePage(string where, string orderby, bool isDesc, int pageIndex, int pageItemCount, out int allItmeCount, params SqlParameter[] sqlParameters)
         {
             //调用数据访问层分页获取数据方法

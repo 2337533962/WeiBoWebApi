@@ -75,7 +75,7 @@
             用户控制器
             </summary>
         </member>
-        <member name="M:WeiBoWebApi.Controllers.UserController.GetUsers">
+        <member name="M:WeiBoWebApi.Controllers.UserController.GetAllUsers">
             <summary>
             获取所有用户信息
             </summary>
@@ -122,6 +122,105 @@
             客户连接成功时触发
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:WeiBoWebApi.Model.OperResult">
+            <summary>
+            返回结果类
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.Model.OperResult.StatusCode">
+            <summary>
+            状态码
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.Model.OperResult.Message">
+            <summary>
+            消息
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.Model.OperResult.Exception">
+            <summary>
+            异常
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Model.OperResult.Succeed">
+            <summary>
+            操作成功
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WeiBoWebApi.Model.OperResult.Failed(System.String)">
+            <summary>
+            操作失败
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WeiBoWebApi.Model.OperResult.Wrong(System.Exception,System.String)">
+            <summary>
+            操作异常
+            </summary>
+            <param name="exception"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WeiBoWebApi.Model.OperResult`1">
+            <summary>
+            带返回值的返回结果类
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.Model.OperResult`1.StatusCode">
+            <summary>
+            状态码
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.Model.OperResult`1.Result">
+            <summary>
+            结果对象
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.Model.OperResult`1.Message">
+            <summary>
+            消息
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.Model.OperResult`1.Exception">
+            <summary>
+            异常
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Model.OperResult`1.ReadResult">
+            <summary>
+            读取结果
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WeiBoWebApi.Model.OperResult`1.Succeed(`0)">
+            <summary>
+            操作成功
+            </summary>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WeiBoWebApi.Model.OperResult`1.Failed(System.String)">
+            <summary>
+            操作失败
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WeiBoWebApi.Model.OperResult`1.Wrong(System.Exception,System.String)">
+            <summary>
+            操作异常
+            </summary>
+            <param name="exception"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WeiBoWebApi.Model.StatusCode">
+            <summary>
+            返回结果状态码
+            </summary>
         </member>
     </members>
 </doc>
