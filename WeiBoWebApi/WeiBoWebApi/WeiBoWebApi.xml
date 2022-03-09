@@ -1,0 +1,289 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WeiBoWebApi</name>
+    </assembly>
+    <members>
+        <member name="T:WeiBoWebApi.Commons.SHAEncryption">
+            <summary>
+            哈希散列加密类
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Commons.SHAEncryption.SHA1Encrypt(System.String)">
+            <summary>
+            散列加密（不可逆），加密失败时返回源字符串
+            </summary>
+            <param name="input">待加密的字符串</param>
+            <returns>返回40个字符</returns>
+        </member>
+        <member name="T:WeiBoWebApi.Controllers.ArticleController">
+            <summary>
+            文章控制器
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.ArticleController.GetArticleInfos">
+            <summary>
+            获取所有文章
+            </summary>
+            <returns>文章列表</returns>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.ArticleController.GetArticleTypes">
+            <summary>
+            获取所有文章类型
+            </summary>
+            <returns>文章类型列表</returns>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.ArticleController.Insert(WeiBoWebApi.Model.ArticleInfo)">
+            <summary>
+            新增文章
+            </summary>
+            <param name="articleInfo"></param>
+            <returns>结果，Succeed或Failed</returns>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.ArticleController.Update(WeiBoWebApi.Model.ArticleInfo)">
+            <summary>
+            修改文章
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.ArticleController.AddHistory(WeiBoWebApi.Model.History)">
+            <summary>
+            新增历史推文
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.ArticleController.GetHistoriesByUid(System.Int32)">
+            <summary>
+            根据Id获取用户的历史文章（可以做历史浏览）
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.ArticleController.AddUserBehavior(WeiBoWebApi.Model.UserBehavior)">
+            <summary>
+            新增用户行为
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.ArticleController.AddCollectInfo(WeiBoWebApi.Model.CollectInfo)">
+            <summary>
+            新增收藏
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.ArticleController.GetCollectInfosByUid(System.Int32)">
+            <summary>
+            根据用户的id获取用户的收藏集合
+            </summary>
+        </member>
+        <member name="T:WeiBoWebApi.Controllers.HubController">
+            <summary>
+            hub控制器(测试阶段)
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.HubController.Send(System.String,System.String)">
+            <summary>
+            发送信息
+            </summary>
+            <param name="msg">发送的消息</param>
+            <param name="id">发送者Id</param>
+        </member>
+        <member name="T:WeiBoWebApi.Controllers.UserController">
+            <summary>
+            用户控制器
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.UserController.GetAllUsers">
+            <summary>
+            获取所有用户信息
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.UserController.GetUserByAccount(System.String)">
+            <summary>
+            根据账号获取指定用户信息
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.UserController.RegisteUser(WeiBoWebApi.ViewModel.UserRegiste)">
+            <summary>
+            注册用户
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.UserController.GetAllSexInfo">
+            <summary>
+            获取所有性别信息
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.UserController.GetSexBySexId(System.Int32)">
+            <summary>
+            根据性别id获取性别值
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.UserController.GetAttentionInfos(System.Int32)">
+            <summary>
+            根据用户Id获取ta关注的信息
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.UserController.GetFollowNum(System.Int32)">
+            <summary>
+            根据用户Id获取ta关注的数量
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.UserController.GetFansList(System.Int32)">
+            <summary>
+            根据用户Id获取ta粉丝的信息
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.UserController.GetFansCount(System.Int32)">
+            <summary>
+            根据用户Id获取ta粉丝的数量
+            </summary>
+        </member>
+        <member name="T:WeiBoWebApi.ChatHub">
+            <summary>
+            Hub
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.ChatHub.OnConnectedAsync">
+            <summary>
+            客户连接成功时触发
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WeiBoWebApi.ChatHub.SendMessage(System.String,System.String)">
+            <summary>
+            发送消息给所有人
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            This method gets called by the runtime. Use this method to add services to the container.
+        </member>
+        <member name="M:WeiBoWebApi.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        </member>
+        <member name="T:WeiBoWebApi.Model.OperResult">
+            <summary>
+            返回结果类
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.Model.OperResult.StatusCode">
+            <summary>
+            状态码
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.Model.OperResult.Message">
+            <summary>
+            消息
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.Model.OperResult.Exception">
+            <summary>
+            异常
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Model.OperResult.Succeed">
+            <summary>
+            操作成功
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WeiBoWebApi.Model.OperResult.Failed(System.String)">
+            <summary>
+            操作失败
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WeiBoWebApi.Model.OperResult.Wrong(System.Exception,System.String)">
+            <summary>
+            操作异常
+            </summary>
+            <param name="exception"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WeiBoWebApi.Model.OperResult`1">
+            <summary>
+            带返回值的返回结果类
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.Model.OperResult`1.StatusCode">
+            <summary>
+            状态码
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.Model.OperResult`1.Result">
+            <summary>
+            结果对象
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.Model.OperResult`1.Message">
+            <summary>
+            消息
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.Model.OperResult`1.Exception">
+            <summary>
+            异常
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Model.OperResult`1.ReadResult">
+            <summary>
+            读取结果
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WeiBoWebApi.Model.OperResult`1.Succeed(`0)">
+            <summary>
+            操作成功
+            </summary>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WeiBoWebApi.Model.OperResult`1.Failed(System.String)">
+            <summary>
+            操作失败
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WeiBoWebApi.Model.OperResult`1.Wrong(System.Exception,System.String)">
+            <summary>
+            操作异常
+            </summary>
+            <param name="exception"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WeiBoWebApi.Model.StatusCode">
+            <summary>
+            返回结果状态码
+            </summary>
+        </member>
+        <member name="F:WeiBoWebApi.Model.StatusCode.Succeed">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="F:WeiBoWebApi.Model.StatusCode.Failed">
+            <summary>
+            失败
+            </summary>
+        </member>
+        <member name="F:WeiBoWebApi.Model.StatusCode.Wrong">
+            <summary>
+            异常
+            </summary>
+        </member>
+        <member name="T:WeiBoWebApi.ViewModel.UserRegiste">
+            <summary>
+            用户注册
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.UserRegiste.Account">
+            <summary>
+            账号
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.UserRegiste.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+    </members>
+</doc>

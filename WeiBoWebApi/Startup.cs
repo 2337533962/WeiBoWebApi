@@ -75,9 +75,18 @@ namespace WeiBoWebApi
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors("any");
+
+
             app.UseRouting();
             app.UseAuthorization();
-            app.UseEndpoints(x => { x.MapControllers(); });
+            //app.UseEndpoints(x => { x.MapControllers(); });
+            //向 ASP.NET Core 应用添加 SignalR 功能时，通过在 Startup.Configure 方法的 app.UseEndpoints 回调中调用 endpoint.MapHub 来设置 SignalR 路由。
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapHub<ChatHub>("/chathub");
+            });
+
 
             //启用中间件服务生成Swagger作为JSON终结点
             app.UseSwagger();
@@ -88,13 +97,7 @@ namespace WeiBoWebApi
                 c.RoutePrefix = string.Empty;
             });
 
-            //向 ASP.NET Core 应用添加 SignalR 功能时，通过在 Startup.Configure 方法的 app.UseEndpoints 回调中调用 endpoint.MapHub 来设置 SignalR 路由。
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapHub<ChatHub>("/chathub");
-            });
 
-            app.UseCors("any");
 
         }
 
