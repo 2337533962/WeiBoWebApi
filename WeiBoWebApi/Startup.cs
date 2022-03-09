@@ -80,13 +80,12 @@ namespace WeiBoWebApi
 
             app.UseRouting();
             app.UseAuthorization();
-            //app.UseEndpoints(x => { x.MapControllers(); });
             //向 ASP.NET Core 应用添加 SignalR 功能时，通过在 Startup.Configure 方法的 app.UseEndpoints 回调中调用 endpoint.MapHub 来设置 SignalR 路由。
-            app.UseEndpoints(endpoints =>
+            app.UseEndpoints(x =>
             {
-                endpoints.MapHub<ChatHub>("/chathub");
+                x.MapControllers();
+                x.MapHub<ChatHub>("/chathub");
             });
-
 
             //启用中间件服务生成Swagger作为JSON终结点
             app.UseSwagger();
