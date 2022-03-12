@@ -4,6 +4,44 @@
         <name>WeiBoWebApi</name>
     </assembly>
     <members>
+        <member name="M:WeiBoWebApi.Commons.ExtendMethod.ToDataList``1(System.Data.DataTable)">
+            <summary>
+            DataTable转成List
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WeiBoWebApi.Commons.ExtendMethod.ToDataDto``1(System.Data.DataTable)">
+            <summary>
+            DataTable转成Dto
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WeiBoWebApi.Commons.ExtendMethod.ToDataTable``1(System.Collections.Generic.List{``0})">
+            <summary>
+            将实体集合转换为DataTable
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+            <param name="entities">实体集合</param>
+        </member>
+        <member name="M:WeiBoWebApi.Commons.ExtendMethod.CreateTable``1">
+            <summary>
+            创建表
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Commons.ExtendMethod.FillData``1(System.Data.DataTable,System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            填充数据
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Commons.ExtendMethod.CreateRow``1(System.Data.DataTable,``0)">
+            <summary>
+            创建行
+            </summary>
+        </member>
         <member name="T:WeiBoWebApi.Commons.SHAEncryption">
             <summary>
             哈希散列加密类
@@ -82,6 +120,21 @@
             <param name="msg">发送的消息</param>
             <param name="id">发送者Id</param>
         </member>
+        <member name="T:WeiBoWebApi.Controllers.SexController">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.SexController.GetAllSexInfo">
+            <summary>
+            获取所有性别信息
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.SexController.GetSexBySexId(System.Int32)">
+            <summary>
+            根据性别id获取性别值
+            </summary>
+        </member>
         <member name="T:WeiBoWebApi.Controllers.UserController">
             <summary>
             用户控制器
@@ -102,16 +155,6 @@
         <member name="M:WeiBoWebApi.Controllers.UserController.RegisteUser(WeiBoWebApi.ViewModel.UserRegiste)">
             <summary>
             注册用户
-            </summary>
-        </member>
-        <member name="M:WeiBoWebApi.Controllers.UserController.GetAllSexInfo">
-            <summary>
-            获取所有性别信息
-            </summary>
-        </member>
-        <member name="M:WeiBoWebApi.Controllers.UserController.GetSexBySexId(System.Int32)">
-            <summary>
-            根据性别id获取性别值
             </summary>
         </member>
         <member name="M:WeiBoWebApi.Controllers.UserController.GetAttentionInfos(System.Int32)">
@@ -155,6 +198,91 @@
         </member>
         <member name="M:WeiBoWebApi.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
             This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        </member>
+        <member name="T:WeiBoWebApi.ViewModel.UserBasicInfo">
+            <summary>
+            用户基本信息
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.UserBasicInfo.HeadPortrait">
+            <summary>
+            头像
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.UserBasicInfo.Account">
+            <summary>
+            账号
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.UserBasicInfo.NickName">
+            <summary>
+            昵称
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.UserBasicInfo.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.UserBasicInfo.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.UserBasicInfo.Birth">
+            <summary>
+            生日
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.UserBasicInfo.Follow">
+            <summary>
+            关注
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.UserBasicInfo.Fans">
+            <summary>
+            粉丝
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.UserBasicInfo.Address">
+            <summary>
+            地址
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.UserBasicInfo.Token">
+            <summary>
+            令牌
+            </summary>
+        </member>
+        <member name="T:WeiBoWebApi.ViewModel.UserRegiste">
+            <summary>
+            用户注册
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.UserRegiste.Account">
+            <summary>
+            账号
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.UserRegiste.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="T:WeiBoWebApi.ViewModel.UserRegisteOrLogin">
+            <summary>
+            用户注册
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.UserRegisteOrLogin.Account">
+            <summary>
+            账号
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.UserRegisteOrLogin.Password">
+            <summary>
+            密码
+            </summary>
         </member>
         <member name="T:WeiBoWebApi.Model.OperResult">
             <summary>
@@ -268,21 +396,6 @@
         <member name="F:WeiBoWebApi.Model.StatusCode.Wrong">
             <summary>
             异常
-            </summary>
-        </member>
-        <member name="T:WeiBoWebApi.ViewModel.UserRegiste">
-            <summary>
-            用户注册
-            </summary>
-        </member>
-        <member name="P:WeiBoWebApi.ViewModel.UserRegiste.Account">
-            <summary>
-            账号
-            </summary>
-        </member>
-        <member name="P:WeiBoWebApi.ViewModel.UserRegiste.Password">
-            <summary>
-            密码
             </summary>
         </member>
     </members>

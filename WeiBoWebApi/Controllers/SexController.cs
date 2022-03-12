@@ -24,6 +24,7 @@ namespace WeiBoWebApi.Controllers
         {
             return new SexInfoBll().GetAllModel();
         }
+
         /// <summary>
         /// 根据性别id获取性别值
         /// </summary>

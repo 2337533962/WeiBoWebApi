@@ -74,24 +74,6 @@ namespace WeiBoWebApi.Controllers
         }
 
         /// <summary>
-        /// 获取所有性别信息
-        /// </summary>
-        [HttpGet("/sex/all")]
-        public IEnumerable<SexInfo> GetAllSexInfo()
-        {
-            return new SexInfoBll().GetAllModel();
-        }
-
-        /// <summary>
-        /// 根据性别id获取性别值
-        /// </summary>
-        [HttpGet("/sex")]
-        public object GetSexBySexId(int sexId)
-        {
-            return new SexInfoBll().GetModel(sexId);
-        }
-
-        /// <summary>
         /// 根据用户Id获取ta关注的信息
         /// </summary>
         [HttpGet("/follow/list/s")]

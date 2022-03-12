@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using WeiBoWebApi.Model;
 
 #nullable disable
 
@@ -299,16 +300,16 @@ namespace WeiBoWebApi.DAL.Context
 
                 entity.Property(e => e.Uid).HasColumnName("uid");
 
-                entity.Property(e => e.UserBehavior1).HasColumnName("UserBehavior");
+                entity.Property(e => e.Behavior).HasColumnName("UserBehavior");
 
                 entity.HasOne(d => d.UidNavigation)
                     .WithMany()
                     .HasForeignKey(d => d.Uid)
                     .HasConstraintName("FK__UserBehavio__uid__2F10007B");
 
-                entity.HasOne(d => d.UserBehavior1Navigation)
+                entity.HasOne(d => d.BehaviorNavigation)
                     .WithMany()
-                    .HasForeignKey(d => d.UserBehavior1)
+                    .HasForeignKey(d => d.BehaviorNavigation)
                     .HasConstraintName("FK__UserBehav__UserB__300424B4");
             });
 

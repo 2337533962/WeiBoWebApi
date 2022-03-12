@@ -25,7 +25,7 @@ namespace WeiBoWebApi
             //await client.SendAsync("Self", cid);
 
             //像所有用户发送消息
-            await Clients.All.SendAsync("AddMsg", $"{cid}加入了聊天室");
+            await Clients.All.SendAsync("AddMsg", $"{cid}加入了聊天室","快来和我打招呼吧!");
         }
         /// <summary>
         /// 发送消息给所有人

@@ -51,7 +51,7 @@ namespace WeiBoWebApi
             //注册Swagger生成器，定义一个和多个Swagger 文档
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "WeiBo API", Version = "v1" });
                 // 获取xml文件名
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 // 获取xml文件路径
@@ -86,7 +86,18 @@ namespace WeiBoWebApi
             app.UseEndpoints(x =>
             {
                 x.MapControllers();
-                x.MapHub<ChatHub>("/chathub").RequireCors(t=>t.WithOrigins(new string[] { "null"}).AllowAnyMethod().AllowAnyHeader().AllowCredentials());
+                x.MapHub<ChatHub>("/chathub").RequireCors(t => t.WithOrigins(new string[] {
+                    "http://localhost:80",
+                    "http://localhost:5000",
+                    "http://localhost:8080",
+                    "http://localhost:5500",
+                    "http://127.0.0.1:80",
+                    "http://127.0.0.1:5000",
+                    "http://127.0.0.1:5500",
+                    "http://192.168.31.96",
+                    "http://192.168.31.113",
+                    "null"
+                }).AllowAnyMethod().AllowAnyHeader().AllowCredentials());
             });
 
             //启用中间件服务生成Swagger作为JSON终结点
