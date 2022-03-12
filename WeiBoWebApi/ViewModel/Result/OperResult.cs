@@ -15,7 +15,7 @@ namespace WeiBoWebApi.Model
         /// <summary>
         /// 消息
         /// </summary>
-        public string Message { get; private set; }
+        public object Message { get; private set; }
 
         /// <summary>
         /// 异常
@@ -32,6 +32,18 @@ namespace WeiBoWebApi.Model
             {
                 StatusCode = StatusCode.Succeed,
                 Message = "操作成功！"
+            };
+        }
+        /// <summary>
+        /// 操作成功
+        /// </summary>
+        /// <returns></returns>
+        public static OperResult Succeed(object msg)
+        {
+            return new OperResult()
+            {
+                StatusCode = StatusCode.Succeed,
+                Message = msg
             };
         }
 

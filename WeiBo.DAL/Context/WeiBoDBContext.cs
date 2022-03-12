@@ -5,7 +5,7 @@ using WeiBoWebApi.Model;
 
 #nullable disable
 
-namespace WeiBoWebApi.DAL.Context
+namespace WeiBoWebApi.Model
 {
     public partial class WeiBoDBContext : DbContext
     {
@@ -307,10 +307,10 @@ namespace WeiBoWebApi.DAL.Context
                     .HasForeignKey(d => d.Uid)
                     .HasConstraintName("FK__UserBehavio__uid__2F10007B");
 
-                entity.HasOne(d => d.BehaviorNavigation)
-                    .WithMany()
-                    .HasForeignKey(d => d.BehaviorNavigation)
-                    .HasConstraintName("FK__UserBehav__UserB__300424B4");
+                //entity.HasOne(d => d.BehaviorNavigation)
+                //    .WithMany()
+                //    .HasForeignKey(d => d.BehaviorNavigation)
+                //    .HasConstraintName("FK__UserBehav__UserB__300424B4");
             });
 
             modelBuilder.Entity<UserInfo>(entity =>

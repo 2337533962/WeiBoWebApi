@@ -65,12 +65,6 @@
             </summary>
             <returns>文章列表</returns>
         </member>
-        <member name="M:WeiBoWebApi.Controllers.ArticleController.GetArticleTypes">
-            <summary>
-            获取所有文章类型
-            </summary>
-            <returns>文章类型列表</returns>
-        </member>
         <member name="M:WeiBoWebApi.Controllers.ArticleController.Insert(WeiBoWebApi.Model.ArticleInfo)">
             <summary>
             新增文章
@@ -78,34 +72,69 @@
             <param name="articleInfo"></param>
             <returns>结果，Succeed或Failed</returns>
         </member>
-        <member name="M:WeiBoWebApi.Controllers.ArticleController.Update(WeiBoWebApi.Model.ArticleInfo)">
+        <member name="T:WeiBoWebApi.Controllers.ArticleTypeController">
             <summary>
-            修改文章
+            文章类型
             </summary>
         </member>
-        <member name="M:WeiBoWebApi.Controllers.ArticleController.AddHistory(WeiBoWebApi.Model.History)">
+        <member name="M:WeiBoWebApi.Controllers.ArticleTypeController.GetAllTypes">
             <summary>
-            新增历史推文
+            获取所有文章类型
             </summary>
         </member>
-        <member name="M:WeiBoWebApi.Controllers.ArticleController.GetHistoriesByUid(System.Int32)">
+        <member name="T:WeiBoWebApi.Controllers.AttentionController">
             <summary>
-            根据Id获取用户的历史文章（可以做历史浏览）
+            用户关注和粉丝
             </summary>
         </member>
-        <member name="M:WeiBoWebApi.Controllers.ArticleController.AddUserBehavior(WeiBoWebApi.Model.UserBehavior)">
+        <member name="M:WeiBoWebApi.Controllers.AttentionController.GetFollows(System.Int32)">
             <summary>
-            新增用户行为
+            根据用户Id获取ta关注的信息
             </summary>
         </member>
-        <member name="M:WeiBoWebApi.Controllers.ArticleController.AddCollectInfo(WeiBoWebApi.Model.CollectInfo)">
+        <member name="M:WeiBoWebApi.Controllers.AttentionController.GetFollowCount(System.Int32)">
+            <summary>
+            根据用户Id获取ta关注的数量
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.AttentionController.GetFans(System.Int32)">
+            <summary>
+            根据用户Id获取ta粉丝的信息
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.AttentionController.GetFansCount(System.Int32)">
+            <summary>
+            根据用户Id获取ta粉丝的数量
+            </summary>
+        </member>
+        <member name="T:WeiBoWebApi.Controllers.CollectController">
+            <summary>
+            收藏
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.CollectController.AddCollectInfo(WeiBoWebApi.Model.CollectInfo)">
             <summary>
             新增收藏
             </summary>
         </member>
-        <member name="M:WeiBoWebApi.Controllers.ArticleController.GetCollectInfosByUid(System.Int32)">
+        <member name="M:WeiBoWebApi.Controllers.CollectController.GetCollectInfosByUid(System.Int32)">
             <summary>
             根据用户的id获取用户的收藏集合
+            </summary>
+        </member>
+        <member name="T:WeiBoWebApi.Controllers.HistoryController">
+            <summary>
+            历史文章
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.HistoryController.AddHistory(WeiBoWebApi.Model.History)">
+            <summary>
+            新增历史推文
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.HistoryController.GetHistoriesByUid(System.Int32)">
+            <summary>
+            根据Id获取用户的历史文章（可以做历史浏览）
             </summary>
         </member>
         <member name="T:WeiBoWebApi.Controllers.HubController">
@@ -135,46 +164,39 @@
             根据性别id获取性别值
             </summary>
         </member>
+        <member name="T:WeiBoWebApi.Controllers.UserBehaviorController">
+            <summary>
+            用户行为
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.UserBehaviorController.AddUserBehavior(WeiBoWebApi.Model.UserBehavior)">
+            <summary>
+            新增用户行为
+            </summary>
+        </member>
         <member name="T:WeiBoWebApi.Controllers.UserController">
             <summary>
             用户控制器
             </summary>
         </member>
-        <member name="M:WeiBoWebApi.Controllers.UserController.GetAllUsers">
-            <summary>
-            获取所有用户信息
-            </summary>
-        </member>
-        <member name="M:WeiBoWebApi.Controllers.UserController.GetUserByAccount(System.String)">
-            <summary>
-            根据账号获取指定用户信息
-            </summary>
-            <param name="a"></param>
-            <returns></returns>
-        </member>
-        <member name="M:WeiBoWebApi.Controllers.UserController.RegisteUser(WeiBoWebApi.ViewModel.UserRegiste)">
+        <member name="M:WeiBoWebApi.Controllers.UserController.RegisteUser(WeiBoWebApi.ViewModel.UserRegisteOrLogin)">
             <summary>
             注册用户
             </summary>
         </member>
-        <member name="M:WeiBoWebApi.Controllers.UserController.GetAttentionInfos(System.Int32)">
+        <member name="M:WeiBoWebApi.Controllers.UserController.Login(WeiBoWebApi.ViewModel.UserRegisteOrLogin)">
             <summary>
-            根据用户Id获取ta关注的信息
+            登录
             </summary>
         </member>
-        <member name="M:WeiBoWebApi.Controllers.UserController.GetFollowNum(System.Int32)">
+        <member name="M:WeiBoWebApi.Controllers.UserController.GetAllUsers">
             <summary>
-            根据用户Id获取ta关注的数量
+            获取所有用户信息(仅供测试使用)
             </summary>
         </member>
-        <member name="M:WeiBoWebApi.Controllers.UserController.GetFansList(System.Int32)">
+        <member name="M:WeiBoWebApi.Controllers.UserController.GetUserByAccount(System.String)">
             <summary>
-            根据用户Id获取ta粉丝的信息
-            </summary>
-        </member>
-        <member name="M:WeiBoWebApi.Controllers.UserController.GetFansCount(System.Int32)">
-            <summary>
-            根据用户Id获取ta粉丝的数量
+            根据账号获取指定用户信息(仅供测试使用)
             </summary>
         </member>
         <member name="T:WeiBoWebApi.ChatHub">
@@ -254,21 +276,6 @@
             令牌
             </summary>
         </member>
-        <member name="T:WeiBoWebApi.ViewModel.UserRegiste">
-            <summary>
-            用户注册
-            </summary>
-        </member>
-        <member name="P:WeiBoWebApi.ViewModel.UserRegiste.Account">
-            <summary>
-            账号
-            </summary>
-        </member>
-        <member name="P:WeiBoWebApi.ViewModel.UserRegiste.Password">
-            <summary>
-            密码
-            </summary>
-        </member>
         <member name="T:WeiBoWebApi.ViewModel.UserRegisteOrLogin">
             <summary>
             用户注册
@@ -305,6 +312,12 @@
             </summary>
         </member>
         <member name="M:WeiBoWebApi.Model.OperResult.Succeed">
+            <summary>
+            操作成功
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WeiBoWebApi.Model.OperResult.Succeed(System.Object)">
             <summary>
             操作成功
             </summary>

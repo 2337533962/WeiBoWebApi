@@ -31,7 +31,7 @@ namespace WeiBoWebApi.Controllers
         [HttpGet("/sex")]
         public object GetSexBySexId(int sexId)
         {
-            return new SexInfoBll().GetModel(sexId);
+            return new SexInfoBll().GetSexInfoById(sexId);
         }
     }
 }
