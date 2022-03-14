@@ -13,6 +13,7 @@ using Swashbuckle.AspNetCore.Swagger;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace WeiBoWebApi
 {
@@ -47,6 +48,12 @@ namespace WeiBoWebApi
                        .AllowCredentials();
                 });
             });
+
+            services.AddControllers().AddNewtonsoftJson(option =>
+                //忽略循环引用
+                option.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            );
+
 
             //注册Swagger生成器，定义一个和多个Swagger 文档
             services.AddSwaggerGen(c =>

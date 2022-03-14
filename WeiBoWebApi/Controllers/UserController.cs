@@ -22,7 +22,7 @@ namespace WeiBoWebApi.Controllers
         /// 注册用户
         /// </summary>
         [HttpPost("/user/registe")]
-        public object RegisteUser(UserRegisteOrLogin user)
+        public object Registe(UserRegisteOrLogin user)
         {
             if (string.IsNullOrEmpty(user.Account))
                 return OperResult.Failed("账号不能为空！");
@@ -61,6 +61,7 @@ namespace WeiBoWebApi.Controllers
             if (info == null) return OperResult.Failed("账号或密码有误！");
             UserBasicInfo basicInfo = new UserBasicInfo
             {
+                Uid = (int)info.Uid,
                 Account = info.Account,
                 Address = info.Address,
                 Birth = info.Birth,
@@ -76,6 +77,22 @@ namespace WeiBoWebApi.Controllers
         }
 
 
+        [HttpPost("/user/edit")]
+        public object UserEdit(UserEdit userEdit)
+        {
+            UserInfo info = new UserInfo
+            {
+                Uid = userEdit.Uid,
+                Address = userEdit.Address,
+                Birth = userEdit.Birth,
+                HeadPortrait = userEdit.HeadPortrait,
+                Name = userEdit.Name,
+                NickName = userEdit.NickName,
+                Pwd = userEdit.Pwd,
+                SexId = userEdit.SexId
+            };
+
+        }
 
         /// <summary>
         /// 获取所有用户信息(仅供测试使用)

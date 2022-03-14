@@ -11,6 +11,10 @@ namespace WeiBoWebApi.ViewModel
     public class UserBasicInfo
     {
         /// <summary>
+        /// 用户Id
+        /// </summary>
+        public int Uid { get; set; }
+        /// <summary>
         /// 头像
         /// </summary>
         public string HeadPortrait { get; set; }

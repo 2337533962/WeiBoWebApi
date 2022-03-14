@@ -226,6 +226,11 @@
             用户基本信息
             </summary>
         </member>
+        <member name="P:WeiBoWebApi.ViewModel.UserBasicInfo.Uid">
+            <summary>
+            用户Id
+            </summary>
+        </member>
         <member name="P:WeiBoWebApi.ViewModel.UserBasicInfo.HeadPortrait">
             <summary>
             头像
