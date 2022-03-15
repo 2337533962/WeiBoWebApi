@@ -77,22 +77,22 @@ namespace WeiBoWebApi.Controllers
         }
 
 
-        [HttpPost("/user/edit")]
-        public object UserEdit(UserEdit userEdit)
-        {
-            UserInfo info = new UserInfo
-            {
-                Uid = userEdit.Uid,
-                Address = userEdit.Address,
-                Birth = userEdit.Birth,
-                HeadPortrait = userEdit.HeadPortrait,
-                Name = userEdit.Name,
-                NickName = userEdit.NickName,
-                Pwd = userEdit.Pwd,
-                SexId = userEdit.SexId
-            };
+        //[HttpPost("/user/edit")]
+        //public object UserEdit(UserEdit userEdit)
+        //{
+        //    UserInfo info = new UserInfo
+        //    {
+        //        Uid = userEdit.Uid,
+        //        Address = userEdit.Address,
+        //        Birth = userEdit.Birth,
+        //        HeadPortrait = userEdit.HeadPortrait,
+        //        Name = userEdit.Name,
+        //        NickName = userEdit.NickName,
+        //        Pwd = userEdit.Pwd,
+        //        SexId = userEdit.SexId
+        //    };
 
-        }
+        //}
 
         /// <summary>
         /// 获取所有用户信息(仅供测试使用)

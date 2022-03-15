@@ -179,7 +179,7 @@
             用户控制器
             </summary>
         </member>
-        <member name="M:WeiBoWebApi.Controllers.UserController.RegisteUser(WeiBoWebApi.ViewModel.UserRegisteOrLogin)">
+        <member name="M:WeiBoWebApi.Controllers.UserController.Registe(WeiBoWebApi.ViewModel.UserRegisteOrLogin)">
             <summary>
             注册用户
             </summary>
@@ -279,6 +279,11 @@
         <member name="P:WeiBoWebApi.ViewModel.UserBasicInfo.Token">
             <summary>
             令牌
+            </summary>
+        </member>
+        <member name="T:WeiBoWebApi.ViewModel.UserEdit">
+            <summary>
+            修改用户
             </summary>
         </member>
         <member name="T:WeiBoWebApi.ViewModel.UserRegisteOrLogin">

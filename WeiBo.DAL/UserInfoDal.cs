@@ -21,7 +21,7 @@ namespace WeiBoWebApi.DAL
             if (user != null)
             {
                 user.Token = Guid.NewGuid();
-                user.Overdue = DateTime.Now.AddSeconds(15); 
+                user.Overdue = DateTime.Now.AddSeconds(15);
                 dBContext.Update(user);
                 dBContext.SaveChanges();
             }
