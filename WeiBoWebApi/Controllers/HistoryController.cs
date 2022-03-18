@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,9 +33,9 @@ namespace WeiBoWebApi.Controllers
         /// 根据Id获取用户的历史文章（可以做历史浏览）
         /// </summary>
         [HttpGet("/history/s")]
-        public IEnumerable<History> GetHistoriesByUid(int uid)
+        public object GetHistoriesByUid(int uid)
         {
-            return new HistoryBll().GetHistoriesByUid(uid);
+            return JsonConvert.SerializeObject(new HistoryBll().GetHistoriesByUid(uid));
         }
     }
 }

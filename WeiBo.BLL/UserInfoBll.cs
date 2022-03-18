@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using WeiBoWebApi.Commons;
 using WeiBoWebApi.DAL;
 using WeiBoWebApi.Model;
+using System.Data;
 
 namespace WeiBoWebApi.BLL
 {
@@ -15,10 +16,11 @@ namespace WeiBoWebApi.BLL
 
         public UserInfo Login(UserInfo userInfo)
         {
+            userInfo.Pwd =new SHAEncryption().SHA1Encrypt(userInfo.Pwd);
             return _userInfoDal.Login(userInfo);
         }
 
-        public IEnumerable<UserInfo> GetAllModel()
+        public DataTable GetAllModel()
         {
             return _userInfoDal.GetAllModel();
         }

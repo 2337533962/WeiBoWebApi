@@ -5,14 +5,8 @@ using System.Collections.Generic;
 
 namespace WeiBoWebApi.Model
 {
-    public partial class UserInfo
+    public class UserInfo
     {
-        public UserInfo()
-        {
-            ArticleComments = new HashSet<ArticleComment>();
-            ArticleInfos = new HashSet<ArticleInfo>();
-        }
-
         public int Uid { get; set; }
         public string HeadPortrait { get; set; }
         public string Account { get; set; }
@@ -26,9 +20,5 @@ namespace WeiBoWebApi.Model
         public bool? IsDelete { get; set; }
         public Guid? Token { get; set; }
         public DateTime? Overdue { get; set; }
-
-        public virtual SexInfo Sex { get; set; }
-        public virtual ICollection<ArticleComment> ArticleComments { get; set; }
-        public virtual ICollection<ArticleInfo> ArticleInfos { get; set; }
     }
 }

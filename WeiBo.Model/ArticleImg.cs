@@ -5,11 +5,9 @@ using System.Collections.Generic;
 
 namespace WeiBoWebApi.Model
 {
-    public partial class ArticleImg
+    public class ArticleImg
     {
         public int? ArticleId { get; set; }
         public string ImgUrl { get; set; }
-
-        public virtual ArticleInfo Article { get; set; }
     }
 }

@@ -9,15 +9,16 @@ namespace WeiBoWebApi.DAL
 {
     public class UserBehaviorDal
     {
-        readonly WeiBoDBContext dBContext = DBContextFactory.GetContext();
+        //readonly WeiBoDBContext dBContext = DBContextFactory.GetContext();
 
         /// <summary>
         /// 新增用户行为
         /// </summary>
         public int Add(UserBehavior userBehavior)
         {
-            dBContext.UserBehaviors.Add(userBehavior);
-            return dBContext.SaveChanges();
+           string sql=string.Format(@"insert into UserBehavior values
+               ({0}, {1})",userBehavior.Uid,userBehavior.Behavior);
+            return SqlHelper.ExecuteNonQuery(sql);
         }
     }
 }

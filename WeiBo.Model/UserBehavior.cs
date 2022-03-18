@@ -5,12 +5,9 @@ using System.Collections.Generic;
 
 namespace WeiBoWebApi.Model
 {
-    public partial class UserBehavior
+    public class UserBehavior
     {
         public int? Uid { get; set; }
         public int? Behavior { get; set; }
-
-        public virtual UserInfo UidNavigation { get; set; }
-        public virtual ArticleTag BehaviorNavigation { get; set; }
     }
 }

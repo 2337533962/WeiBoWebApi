@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using WeiBoWebApi.DAL;
 using WeiBoWebApi.Model;
+using System.Data;
 
 namespace WeiBoWebApi.BLL
 {
     public class SexInfoBll
     {
         private readonly SexInfoDal _sexInfoDal = new SexInfoDal();
-        public IEnumerable<SexInfo> GetAllModel()
+        public DataTable GetAllModel()
         {
             return _sexInfoDal.GetAllModel();
         }

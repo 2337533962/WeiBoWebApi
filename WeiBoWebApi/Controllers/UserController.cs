@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using WeiBoWebApi.Model;
 using WeiBoWebApi.BLL;
 using WeiBoWebApi.ViewModel;
-using WeiBoWebApi.Commons;
+using Newtonsoft.Json;
 
 namespace WeiBoWebApi.Controllers
 {
@@ -55,7 +55,7 @@ namespace WeiBoWebApi.Controllers
             UserInfo userInfo = new UserInfo()
             {
                 Account = user.Account,
-                Pwd = new SHAEncryption().SHA1Encrypt(user.Password)
+                Pwd = user.Password
             };
             UserInfo info = new UserInfoBll().Login(userInfo);
             if (info == null) return OperResult.Failed("账号或密码有误！");
@@ -98,9 +98,9 @@ namespace WeiBoWebApi.Controllers
         /// 获取所有用户信息(仅供测试使用)
         /// </summary>
         [HttpGet("/user/all")]
-        public IEnumerable<UserInfo> GetAllUsers()
+        public object GetAllUsers()
         {
-            return new UserInfoBll().GetAllModel();
+            return JsonConvert.SerializeObject(new UserInfoBll().GetAllModel());
         }
 
         /// <summary>

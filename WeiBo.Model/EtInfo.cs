@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace WeiBoWebApi.Model
 {
-    public partial class EtInfo
+    public class EtInfo
     {
         public int? Et { get; set; }
         public int? EtTo { get; set; }

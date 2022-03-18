@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace WeiBoWebApi.Model
 {
-    public partial class AttentionInfo
+    public class AttentionInfo
     {
         public int? FollowId { get; set; }
         public int? FollowToId { get; set; }

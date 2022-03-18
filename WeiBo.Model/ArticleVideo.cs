@@ -5,11 +5,9 @@ using System.Collections.Generic;
 
 namespace WeiBoWebApi.Model
 {
-    public partial class ArticleVideo
+    public class ArticleVideo
     {
         public int? ArticleId { get; set; }
         public string VideoUrl { get; set; }
-
-        public virtual ArticleInfo Article { get; set; }
     }
 }

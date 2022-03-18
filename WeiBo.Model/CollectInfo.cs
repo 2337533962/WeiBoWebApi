@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace WeiBoWebApi.Model
 {
-    public partial class CollectInfo
+    public class CollectInfo
     {
         public int? Uid { get; set; }
         public int? ArticleId { get; set; }

@@ -11,7 +11,7 @@ namespace WeiBoWebApi.BLL
     public class ArticleTypeBll
     {
         private readonly ArticleTypeDal _articleTypeDal = new ArticleTypeDal();
-        public IEnumerable<ArticleType> GetAllModel()
+        public List<ArticleType> GetAllModel()
         {
             return _articleTypeDal.GetAllModel();
         }

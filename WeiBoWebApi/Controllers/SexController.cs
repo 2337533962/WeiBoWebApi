@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +21,9 @@ namespace WeiBoWebApi.Controllers
         /// 获取所有性别信息
         /// </summary>
         [HttpGet("/sex/all")]
-        public IEnumerable<SexInfo> GetAllSexInfo()
+        public object GetAllSexInfo()
         {
-            return new SexInfoBll().GetAllModel();
+            return JsonConvert.SerializeObject(new SexInfoBll().GetAllModel());
         }
 
         /// <summary>

@@ -5,16 +5,9 @@ using System.Collections.Generic;
 
 namespace WeiBoWebApi.Model
 {
-    public partial class ArticleTag
+    public class ArticleTag
     {
-        public ArticleTag()
-        {
-            ArticleInfos = new HashSet<ArticleInfo>();
-        }
-
         public int TagId { get; set; }
         public string Tag { get; set; }
-
-        public virtual ICollection<ArticleInfo> ArticleInfos { get; set; }
     }
 }

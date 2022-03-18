@@ -8,6 +8,7 @@ namespace WeiBoWebApi.ViewModel
     /// <summary>
     /// 修改用户
     /// </summary>
+#pragma warning disable CS1591 // 缺少对公共可见类型或成员的 XML 注释
     public class UserEdit
     {
         public int Uid { get; set; }
@@ -20,3 +21,4 @@ namespace WeiBoWebApi.ViewModel
         public string Address { get; set; }
     }
 }
+#pragma warning restore CS1591 // 缺少对公共可见类型或成员的 XML 注释

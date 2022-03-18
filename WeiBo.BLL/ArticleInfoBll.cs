@@ -11,7 +11,7 @@ namespace WeiBoWebApi.BLL
     public class ArticleInfoBll
     {
         private readonly ArticleInfoDal _articleInfoDal = new ArticleInfoDal();
-        public IEnumerable<ArticleInfo> GetAllModel()
+        public List<ArticleInfo> GetAllModel()
         {
             return _articleInfoDal.GetAllModel();
         }

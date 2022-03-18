@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +21,9 @@ namespace WeiBoWebApi.Controllers
         /// 根据用户Id获取ta关注的信息
         /// </summary>
         [HttpGet("/follow/list")]
-        public IEnumerable<AttentionInfo> GetFollows(int uid)
+        public object GetFollows(int uid)
         {
-            return new AttentionInfoBll().GetFollowsByUid(uid);
+            return JsonConvert.SerializeObject(new AttentionInfoBll().GetFollowsByUid(uid));
         }
 
         /// <summary>
@@ -38,9 +39,9 @@ namespace WeiBoWebApi.Controllers
         /// 根据用户Id获取ta粉丝的信息
         /// </summary>
         [HttpGet("/fans/list")]
-        public IEnumerable<AttentionInfo> GetFans(int uid)
+        public object GetFans(int uid)
         {
-            return new AttentionInfoBll().GetFansByUid(uid);
+            return JsonConvert.SerializeObject(new AttentionInfoBll().GetFansByUid(uid));
         }
 
         /// <summary>

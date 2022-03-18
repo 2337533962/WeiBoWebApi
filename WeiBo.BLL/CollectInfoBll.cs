@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WeiBoWebApi.DAL;
 using WeiBoWebApi.Model;
+using System.Data;
 
 namespace WeiBoWebApi.BLL
 {
@@ -16,7 +17,7 @@ namespace WeiBoWebApi.BLL
             return _collectInfoDal.Add(collectInfo);
         }
 
-        public IEnumerable<CollectInfo> GetCollectsByUid(int uid)
+        public DataTable GetCollectsByUid(int uid)
         {
             return _collectInfoDal.GetCollectsByUid(uid);
         }

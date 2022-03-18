@@ -40,9 +40,9 @@ namespace WeiBoWebApi.Controllers
             return OperResult.Failed("添加失败!");
         }
 
-        /// <summary>
-        /// 修改文章
-        /// </summary>
+        // <summary>
+        // 修改文章
+        // </summary>
         //[HttpPut("/rticle/u")]
         //public object Update(ArticleInfo articleInfo)
         //{

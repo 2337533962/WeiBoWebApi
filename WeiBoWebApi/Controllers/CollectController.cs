@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,9 +33,9 @@ namespace WeiBoWebApi.Controllers
         /// 根据用户的id获取用户的收藏集合
         /// </summary>
         [HttpGet("/collectInfo")]
-        public IEnumerable<CollectInfo> GetCollectInfosByUid(int uid)
+        public object GetCollectInfosByUid(int uid)
         {
-            return new CollectInfoBll().GetCollectsByUid(uid);
+            return JsonConvert.SerializeObject(new CollectInfoBll().GetCollectsByUid(uid));
         }
     }
 }
