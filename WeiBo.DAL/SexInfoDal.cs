@@ -28,8 +28,8 @@ namespace WeiBoWebApi.DAL
             SexInfo sex = new SexInfo();
             string sql = "select * from SexInfo where sexId=" + sexId;
             DataTable dt = SqlHelper.GetTable(sql);
-            sex.SexId =Convert.ToInt32( dt.Rows[0][0]);
-            sex.Sex = dt.Rows[0][1].ToString();
+            sex.SexId =SqlHelper.FromDBValue<int>( dt.Rows[0][0]);
+            sex.Sex = SqlHelper.FromDBValue<string>( dt.Rows[0][1]);
             return sex;
         }
     }

@@ -6,26 +6,26 @@ using System.Linq;
 using System.Threading.Tasks;
 using WeiBoWebApi.BLL;
 using WeiBoWebApi.Model;
+using System.Data;
+using Newtonsoft.Json;
 
 namespace WeiBoWebApi.Controllers
 {
     /// <summary>
-    /// 用户行为
+    /// 文章标签
     /// </summary>
     [Route("[controller]")]
     [ApiController]
-    public class UserBehaviorController : ControllerBase
+    public class ArticleTagController : ControllerBase
     {
+        private readonly ArticleTagBll _articleTagBll = new ArticleTagBll();
 
         /// <summary>
-        /// 新增用户行为
+        /// 获取前n条热门标签
         /// </summary>
-        [HttpPost("/behavior")]
-        public object AddUserBehavior(UserBehavior userBehavior)
-        {
-            if (new UserBehaviorBll().Add(userBehavior) > 0)
-                return OperResult.Succeed("行为记录成功!");
-            return OperResult.Failed("行为记录失败!");
+        [HttpGet("/tag")]
+        public string GetHotTagTopN(int top) {
+            return JsonConvert.SerializeObject( _articleTagBll.GetHotTagTopN(top));
         }
     }
 }

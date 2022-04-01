@@ -16,8 +16,8 @@ namespace WeiBoWebApi.DAL
         /// </summary>
         public int Add(UserBehavior userBehavior)
         {
-           string sql=string.Format(@"insert into UserBehavior values
-               ({0}, {1})",userBehavior.Uid,userBehavior.Behavior);
+           string sql=string.Format(@"insert into Behavior values
+               ({0}, {1})", userBehavior.Uid,userBehavior.Behavior);
             return SqlHelper.ExecuteNonQuery(sql);
         }
     }

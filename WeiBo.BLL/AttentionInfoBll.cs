@@ -28,9 +28,25 @@ namespace WeiBoWebApi.BLL
             return _attentionInfoDal.GetFollowCountByUid(uid);
         }
 
+
+        /// <summary>
+        /// 新增关注
+        /// </summary>
+        public int Add(AttentionInfo attentionInfo)
+        {
+            return _attentionInfoDal.Add(attentionInfo);
+        }
+
         public int GetFansCountByUid(int uid)
         {
             return _attentionInfoDal.GetFansCountByUid(uid);
+        }
+        /// <summary>
+        /// 取消关注
+        /// </summary>
+        public int Remove(AttentionInfo attentionInfo)
+        {
+            return _attentionInfoDal.Remove(attentionInfo);
         }
     }
 }

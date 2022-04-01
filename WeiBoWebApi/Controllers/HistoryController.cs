@@ -17,25 +17,26 @@ namespace WeiBoWebApi.Controllers
     [ApiController]
     public class HistoryController : ControllerBase
     {
+        private readonly HistoryBll _historyBll = new HistoryBll();
 
         /// <summary>
         /// 新增历史推文
         /// </summary>
-        [HttpPost("/history/i")]
-        public object AddHistory(History history)
+        [HttpPost("/history")]
+        public string AddHistory(History history)
         {
-            if (new HistoryBll().Add(history) > 0)
-                return OperResult.Succeed();
-            return OperResult.Failed("历史推文添加失败!");
+            if (_historyBll.Add(history) > 0)
+                return JsonConvert.SerializeObject(OperResult.Succeed("添加成功!"));
+            return JsonConvert.SerializeObject(OperResult.Failed("历史推文添加失败!"));
         }
 
         /// <summary>
         /// 根据Id获取用户的历史文章（可以做历史浏览）
         /// </summary>
-        [HttpGet("/history/s")]
-        public object GetHistoriesByUid(int uid)
+        [HttpGet("/history")]
+        public string GetHistoriesByUid(int uid)
         {
-            return JsonConvert.SerializeObject(new HistoryBll().GetHistoriesByUid(uid));
+            return JsonConvert.SerializeObject(OperResult.Succeed(_historyBll.GetHistoriesByUid(uid)));
         }
     }
 }

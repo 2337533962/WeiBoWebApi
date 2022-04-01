@@ -30,9 +30,6 @@ namespace WeiBoWebApi
         /// This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //发布政策解决跨域
-            //services.AddCors(c => c.AddPolicy("any", p => p.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod()));
-
             services.AddCors(op =>
             {
                 op.AddPolicy("any", set =>

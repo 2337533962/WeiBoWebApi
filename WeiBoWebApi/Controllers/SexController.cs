@@ -21,18 +21,18 @@ namespace WeiBoWebApi.Controllers
         /// 获取所有性别信息
         /// </summary>
         [HttpGet("/sex/all")]
-        public object GetAllSexInfo()
+        public string GetAllSexInfo()
         {
-            return JsonConvert.SerializeObject(new SexInfoBll().GetAllModel());
+            return JsonConvert.SerializeObject(OperResult.Succeed(new SexInfoBll().GetAllModel()));
         }
 
         /// <summary>
         /// 根据性别id获取性别值
         /// </summary>
         [HttpGet("/sex")]
-        public object GetSexBySexId(int sexId)
+        public string GetSexBySexId(int sexId)
         {
-            return new SexInfoBll().GetSexInfoById(sexId);
+            return JsonConvert.SerializeObject(OperResult.Succeed(new SexInfoBll().GetSexInfoById(sexId)));
         }
     }
 }

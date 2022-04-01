@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WeiBoWebApi.Model;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace WeiBoWebApi.DAL
 {
@@ -17,7 +18,7 @@ namespace WeiBoWebApi.DAL
         /// </summary>
         public DataTable GetFollowsByUid(int uid)
         {
-            string sql = string.Format(@"select * from AttentionInfo as a,UserInfo as b where  a.followToId=b.uid  and followId={0}", @uid);
+            string sql = string.Format(@"select followToId from AttentionInfo as a,UserInfo as b where  a.followToId=b.uid  and followId={0}", @uid);
             return SqlHelper.GetTable(sql);
 
         }
@@ -26,7 +27,7 @@ namespace WeiBoWebApi.DAL
         /// </summary>
         public DataTable GetFansByUid(int uid)
         {
-            string sql = "select * from AttentionInfo as a,UserInfo as b where  a.followId=b.uid  and followToId=" + uid;
+            string sql = "select followId from AttentionInfo as a,UserInfo as b where  a.followId=b.uid  and followToId=" + uid;
             return SqlHelper.GetTable(sql);
         }
         /// <summary>
@@ -43,10 +44,32 @@ namespace WeiBoWebApi.DAL
         /// </summary>
         public int GetFansCountByUid(int uid)
         {
-            string sql = @" select Count(followId) as FollowToNum  from AttentionInfo as a,UserInfo as b where a.followId = b.uid  and followToId = 3" + uid;
+            string sql = @" select Count(followId) as FollowToNum  from AttentionInfo as a,UserInfo as b where a.followId = b.uid  and followToId =" + uid;
             DataTable dt = SqlHelper.GetTable(sql);
             return Convert.ToInt32(dt.Rows[0][0]);
 
+        }
+
+        /// <summary>
+        /// 新增关注
+        /// </summary>
+        public int Add(AttentionInfo attentionInfo)
+        {
+            string sql = "insert into AttentionInfo values(@followId,@followToId)";
+            return SqlHelper.ExecuteNonQuery(sql,
+                new SqlParameter("followId", attentionInfo.FollowId),
+                new SqlParameter("followToId", attentionInfo.FollowToId));
+        }
+
+        /// <summary>
+        /// 取消关注
+        /// </summary>
+        public int Remove(AttentionInfo attentionInfo)
+        {
+            string sql = "delete AttentionInfo where followId=@followId and followToId=@followToId";
+            return SqlHelper.ExecuteNonQuery(sql,
+                new SqlParameter("followId", attentionInfo.FollowId),
+                new SqlParameter("followToId", attentionInfo.FollowToId));
         }
     }
 }

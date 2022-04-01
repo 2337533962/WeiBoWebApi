@@ -18,47 +18,44 @@ namespace WeiBoWebApi.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+        private readonly UserInfoBll _userInfoBll = new UserInfoBll();
+
         /// <summary>
         /// 注册用户
         /// </summary>
-        [HttpPost("/user/registe")]
-        public object Registe(UserRegisteOrLogin user)
+        [HttpPost("/registe")]
+        public string Registe(UserRegisteOrLogin user)
         {
-            if (string.IsNullOrEmpty(user.Account))
-                return OperResult.Failed("账号不能为空！");
-            if (string.IsNullOrEmpty(user.Password))
-                return OperResult.Failed("密码不能为空！");
-
-            UserInfoBll userInfoBll = new UserInfoBll();
             UserInfo userInfo = new UserInfo
             {
                 Account = user.Account,
                 Pwd = user.Password
             };
-
-            if (userInfoBll.Add(userInfo) > 0)
-                return OperResult.Succeed("注册成功！");
-            return OperResult.Failed("账号已存在！");
-
+            if (_userInfoBll.Add(userInfo) > 0)
+                return JsonConvert.SerializeObject(
+                    OperResult.Succeed("注册成功！")
+                );
+            return JsonConvert.SerializeObject(
+                OperResult.Failed("账号已存在！")
+            );
         }
 
         /// <summary>
-        /// 登录
+        /// 使用账号密码登录
         /// </summary>
-        [HttpPost("/user/login")]
-        public object Login(UserRegisteOrLogin user)
+        [HttpPost("/login")]
+        public string Login(UserRegisteOrLogin user)
         {
-            if (string.IsNullOrEmpty(user.Account))
-                return OperResult.Failed("账号不能为空！");
-            if (string.IsNullOrEmpty(user.Password))
-                return OperResult.Failed("密码不能为空！");
             UserInfo userInfo = new UserInfo()
             {
                 Account = user.Account,
                 Pwd = user.Password
             };
-            UserInfo info = new UserInfoBll().Login(userInfo);
-            if (info == null) return OperResult.Failed("账号或密码有误！");
+            UserInfo info = _userInfoBll.Login(userInfo);
+            if (info == null)
+                return JsonConvert.SerializeObject(
+                    OperResult.Failed("账号或密码有误！")
+                );
             UserBasicInfo basicInfo = new UserBasicInfo
             {
                 Uid = (int)info.Uid,
@@ -73,26 +70,51 @@ namespace WeiBoWebApi.Controllers
                 Fans = new AttentionInfoBll().GetFansCountByUid(info.Uid),
                 Follow = new AttentionInfoBll().GetFollowCountByUid(info.Uid)
             };
-            return OperResult.Succeed(basicInfo);
+            return JsonConvert.SerializeObject(
+                OperResult.Succeed(basicInfo)
+            );
         }
 
+        /// <summary>
+        /// 根据id获取用户信息
+        /// </summary>
+        [HttpGet("/user/id")]
+        public string GetUserInfoById(int id)
+        {
+            return JsonConvert.SerializeObject(
+                OperResult.Succeed(
+                    _userInfoBll.GetUserInfoById(id)
+                    )
+                );
+        }
 
-        //[HttpPost("/user/edit")]
-        //public object UserEdit(UserEdit userEdit)
-        //{
-        //    UserInfo info = new UserInfo
-        //    {
-        //        Uid = userEdit.Uid,
-        //        Address = userEdit.Address,
-        //        Birth = userEdit.Birth,
-        //        HeadPortrait = userEdit.HeadPortrait,
-        //        Name = userEdit.Name,
-        //        NickName = userEdit.NickName,
-        //        Pwd = userEdit.Pwd,
-        //        SexId = userEdit.SexId
-        //    };
-
-        //}
+        /// <summary>
+        /// 修改用户信息
+        /// </summary>
+        /// <param name="userEdit"></param>
+        /// <returns></returns>
+        [HttpPut("/user/edit")]
+        public string UserEdit(UserEdit userEdit)
+        {
+            UserInfo info = new UserInfo
+            {
+                Uid = userEdit.Uid,
+                Address = userEdit.Address,
+                Birth = userEdit.Birth,
+                HeadPortrait = userEdit.HeadPortrait,
+                Name = userEdit.Name,
+                NickName = userEdit.NickName,
+                Pwd = userEdit.Pwd,
+                SexId = userEdit.SexId
+            };
+            if (_userInfoBll.Update(info) > 0)
+                return JsonConvert.SerializeObject(
+                    OperResult.Succeed("修改成功!")
+                );
+            return JsonConvert.SerializeObject(
+                OperResult.Failed("修改失败!")
+            );
+        }
 
         /// <summary>
         /// 获取所有用户信息(仅供测试使用)
@@ -100,16 +122,24 @@ namespace WeiBoWebApi.Controllers
         [HttpGet("/user/all")]
         public object GetAllUsers()
         {
-            return JsonConvert.SerializeObject(new UserInfoBll().GetAllModel());
+            return JsonConvert.SerializeObject(
+                OperResult.Succeed(
+                    _userInfoBll.GetAllModel()
+                    )
+                );
         }
 
         /// <summary>
         /// 根据账号获取指定用户信息(仅供测试使用)
         /// </summary>
-        [HttpGet("/user/{account}")]
-        public object GetUserByAccount(string account)
+        [HttpGet("/user/account")]
+        public string GetUserByAccount(string account)
         {
-            return new UserInfoBll().GetUserByAccount(account);
+            return JsonConvert.SerializeObject(
+                OperResult.Succeed(
+                    _userInfoBll.GetUserByAccount(account)
+                    )
+                );
         }
     }
 }

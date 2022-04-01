@@ -38,7 +38,7 @@ namespace WeiBoWebApi.Model
         /// 操作成功
         /// </summary>
         /// <returns></returns>
-        public static OperResult Succeed(object msg)
+        public static OperResult Succeed(object msg = null)
         {
             return new OperResult()
             {

@@ -8,7 +8,7 @@ using System.Text;
 
 namespace WeiBoWebApi.DAL
 {
-    
+
     public class SqlHelper//在class前面加上public   公共的
     {
         //直接把所以的方法写成静态的方法
@@ -174,15 +174,64 @@ namespace WeiBoWebApi.DAL
         }
 
         /// <summary>
-        /// 写入日志文件
+        /// 将要传入数据库的空值转成DBnull.Value
         /// </summary>
-        /// <param name="str">传入异常信息</param>
-        public static void WriteLog(Exception ex)
+        /// <param name="value">要传入的值</param>
+        /// <returns>返回对象，如值为空则转为DBnull，不为空返回原值</returns>
+        public static object ToDBValue(object value)
         {
-            StreamWriter streamWriter = new StreamWriter("log", true, Encoding.UTF8);
-            streamWriter.WriteLine(DateTime.Now.ToString("G") + ":\n" + ex);
-            streamWriter.WriteLine("=====================================================================");
-            streamWriter.Close();
+            return value == null ? DBNull.Value : value;
+        }
+        /// <summary>
+        /// 将要获取到的数据库的空值转成null
+        /// </summary>
+        /// <param name="value">数据库的值</param>
+        /// <returns>返回对象，如值为DBnull则转为null，不为空返回原值</returns>
+        public static object FromDBValue(object value)
+        {
+            return value == DBNull.Value ? null : value;
+        }
+        /// <summary>
+        /// 如果从数据库中获取的值是DBNull，则返回该类型的默认值，否则转换后的自身
+        /// </summary>
+        public static T FromDBValue<T>(object value)
+        {
+            return value == DBNull.Value || value == null ? default : (T)value;
+        }
+
+        public static int Transaction(string[] sql,params SqlParameter[] ps)
+        {
+            SqlConnection con = new SqlConnection(connstr);
+            con.Open();
+            //启动一个事务。
+            SqlTransaction myTran = con.BeginTransaction();
+            //为事务创建一个命令，注意我们执行双条命令，第一次执行当然成功。我们再执行一次，失败。
+            //第三次我们改其中一个命令，另一个不改，这时候事务会报错，这就是事务机制。
+            SqlCommand myCom = new SqlCommand();
+            myCom.Connection = con;
+            myCom.Transaction = myTran;
+            try
+            {
+                for (int i = 0; i < sql.Length; i++)
+                {
+                    myCom.CommandText = sql[i];
+                    myCom.ExecuteNonQuery();
+                }
+                myTran.Commit();
+                return sql.Length;
+
+            }
+            catch (Exception Ex)
+            {
+                myTran.Rollback();
+                //创建并且返回异常的错误信息
+                return -1;
+            }
+            finally
+            {
+                con.Close();
+            }
+
         }
     }
 }

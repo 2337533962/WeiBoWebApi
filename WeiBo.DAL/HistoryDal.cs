@@ -25,7 +25,7 @@ namespace WeiBoWebApi.DAL
         /// </summary>
         public DataTable GetHistoriesByUid(int uid)
         {
-            string sql = @"select * from History h join UserInfo u on h.uid=u.uid
+            string sql = @"select h.articleId from History h join UserInfo u on h.uid=u.uid
 join ArticleInfo a on a.articleId = h.articleId where h.uid = " + uid;
             return SqlHelper.GetTable(sql);
         }

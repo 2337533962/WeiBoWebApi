@@ -16,5 +16,6 @@ namespace WeiBoWebApi.Model
         public int? Forward { get; set; }
         public int? Fabulous { get; set; }
         public DateTime? ReleaseTime { get; set; }
+        public int? TypeId { get; set; }
     }
 }

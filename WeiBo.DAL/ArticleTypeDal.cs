@@ -25,8 +25,8 @@ namespace WeiBoWebApi.DAL
             {
                 articleType.Add(new ArticleType()
                 {
-                    TypeId = Convert.ToInt32(dataReader["TypeId"]),
-                    Type = dataReader["Type"].ToString()
+                    TypeId = SqlHelper.FromDBValue<int>(dataReader["TypeId"]),
+                    Type =SqlHelper.FromDBValue<string>( dataReader["Type"])
                 });
             }
             dataReader.Close();

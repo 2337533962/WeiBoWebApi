@@ -15,12 +15,45 @@
             </summary>
             <returns>文章列表</returns>
         </member>
-        <member name="M:WeiBoWebApi.Controllers.ArticleController.Insert(WeiBoWebApi.Model.ArticleInfo)">
+        <member name="M:WeiBoWebApi.Controllers.ArticleController.GetHotArticleInfosByPage(System.Int32,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            获取热门文章，页码和一页多少篇文章(小时，天，周)
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.ArticleController.GetNewArticleInfosByPage(System.Int32,System.Int32)">
+            <summary>
+            获取最新文章，页码和一页多少篇文章
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.ArticleController.GetTypeArticleInfosByPage(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            获取类型文章，页码和一页多少篇文章
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.ArticleController.GetArticleInfoById(System.Int32)">
+            <summary>
+            根据文章id获取文章信息
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.ArticleController.Insert(WeiBoWebApi.ViewModel.ArticleBasicInfo)">
             <summary>
             新增文章
             </summary>
-            <param name="articleInfo"></param>
-            <returns>结果，Succeed或Failed</returns>
+        </member>
+        <member name="T:WeiBoWebApi.Controllers.ArticleImgController">
+            <summary>
+            文章图片
+            </summary>
+        </member>
+        <member name="T:WeiBoWebApi.Controllers.ArticleTagController">
+            <summary>
+            文章标签
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.ArticleTagController.GetHotTagTopN(System.Int32)">
+            <summary>
+            获取前n条热门标签
+            </summary>
         </member>
         <member name="T:WeiBoWebApi.Controllers.ArticleTypeController">
             <summary>
@@ -57,19 +90,44 @@
             根据用户Id获取ta粉丝的数量
             </summary>
         </member>
+        <member name="M:WeiBoWebApi.Controllers.AttentionController.Add(WeiBoWebApi.Model.AttentionInfo)">
+            <summary>
+            新增关注
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.AttentionController.Remove(WeiBoWebApi.Model.AttentionInfo)">
+            <summary>
+            取消关注
+            </summary>
+        </member>
         <member name="T:WeiBoWebApi.Controllers.CollectController">
             <summary>
             收藏
             </summary>
         </member>
-        <member name="M:WeiBoWebApi.Controllers.CollectController.AddCollectInfo(WeiBoWebApi.Model.CollectInfo)">
+        <member name="M:WeiBoWebApi.Controllers.CollectController.GetCollectInfosByUid(System.Int32)">
+            <summary>
+            根据用户的id获取用户的收藏集合
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.CollectController.Add(System.String,System.Int32)">
             <summary>
             新增收藏
             </summary>
         </member>
-        <member name="M:WeiBoWebApi.Controllers.CollectController.GetCollectInfosByUid(System.Int32)">
+        <member name="M:WeiBoWebApi.Controllers.CollectController.Remove(System.String,System.Int32)">
             <summary>
-            根据用户的id获取用户的收藏集合
+            移除收藏
+            </summary>
+        </member>
+        <member name="T:WeiBoWebApi.Controllers.CommentController">
+            <summary>
+            评论
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.CommentController.GetCommentsById(System.Int32)">
+            <summary>
+            根据文章ID获取评论
             </summary>
         </member>
         <member name="T:WeiBoWebApi.Controllers.HistoryController">
@@ -124,8 +182,20 @@
         </member>
         <member name="M:WeiBoWebApi.Controllers.UserController.Login(WeiBoWebApi.ViewModel.UserRegisteOrLogin)">
             <summary>
-            登录
+            使用账号密码登录
             </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.UserController.GetUserInfoById(System.Int32)">
+            <summary>
+            根据id获取用户信息
+            </summary>
+        </member>
+        <member name="M:WeiBoWebApi.Controllers.UserController.UserEdit(WeiBoWebApi.ViewModel.UserEdit)">
+            <summary>
+            修改用户信息
+            </summary>
+            <param name="userEdit"></param>
+            <returns></returns>
         </member>
         <member name="M:WeiBoWebApi.Controllers.UserController.GetAllUsers">
             <summary>
@@ -158,6 +228,131 @@
         </member>
         <member name="M:WeiBoWebApi.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
             This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        </member>
+        <member name="T:WeiBoWebApi.ViewModel.ArticleBasicInfo">
+            <summary>
+            新增文章
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.ArticleBasicInfo.Uid">
+            <summary>
+            发布人
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.ArticleBasicInfo.UserEquipment">
+            <summary>
+            用户设备
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.ArticleBasicInfo.Content">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.ArticleBasicInfo.Tag">
+            <summary>
+            标签id
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.ArticleBasicInfo.PermissionId">
+            <summary>
+            文章权限
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.ArticleBasicInfo.ReleaseTime">
+            <summary>
+            发布时间
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.ArticleBasicInfo.TypeId">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.ArticleBasicInfo.imgs">
+            <summary>
+            图片
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.ArticleBasicInfo.vdos">
+            <summary>
+            视频
+            </summary>
+        </member>
+        <member name="T:WeiBoWebApi.ViewModel.Comment">
+            <summary>
+            文章评论
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.Comment.Id">
+            <summary>
+            主键id
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.Comment.date">
+            <summary>
+            评论时间
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.Comment.OwnerId">
+            <summary>
+            文章的id
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.Comment.FromId">
+            <summary>
+            评论者id
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.Comment.FromName">
+            <summary>
+            评论者昵称
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.Comment.FromAvatar">
+            <summary>
+            评论者头像
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.Comment.LikeNum">
+            <summary>
+            点赞人数
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.Comment.Content">
+            <summary>
+            评论内容
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.Comment.Reply">
+            <summary>
+            回复，或子评论
+            </summary>
+        </member>
+        <member name="T:WeiBoWebApi.ViewModel.SubComment">
+            <summary>
+            二级评论
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.SubComment.CommentId">
+            <summary>
+            父评论id，即父亲的id
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.SubComment.ToId">
+            <summary>
+            被评论者id
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.SubComment.ToName">
+            <summary>
+            被评论者昵称
+            </summary>
+        </member>
+        <member name="P:WeiBoWebApi.ViewModel.SubComment.ToAvatar">
+            <summary>
+            被评论者头像
+            </summary>
         </member>
         <member name="T:WeiBoWebApi.ViewModel.UserBasicInfo">
             <summary>

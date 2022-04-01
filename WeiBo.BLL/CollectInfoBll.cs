@@ -12,11 +12,25 @@ namespace WeiBoWebApi.BLL
     public class CollectInfoBll
     {
         private readonly CollectInfoDal _collectInfoDal = new CollectInfoDal();
-        public int Add(CollectInfo collectInfo)
+
+        /// <summary>
+        /// 新增收藏
+        /// </summary>
+        public int Add(int? uid, int articleId)
         {
-            return _collectInfoDal.Add(collectInfo);
+            return _collectInfoDal.Add(uid, articleId);
+        }
+        /// <summary>
+        /// 移除收藏
+        /// </summary>
+        public int Remove(int? uid, int articleId)
+        {
+            return _collectInfoDal.Remove(uid, articleId);
         }
 
+        /// <summary>
+        /// 获取用户的收藏
+        /// </summary>
         public DataTable GetCollectsByUid(int uid)
         {
             return _collectInfoDal.GetCollectsByUid(uid);
